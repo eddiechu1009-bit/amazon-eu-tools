@@ -1,7 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { wizardSteps } from '../data/wizardSteps';
 import { CountryCode } from '../data/types';
 import ChecklistCard from './ChecklistCard';
+
+const WIZARD_STORAGE_KEY = 'eu-tools-wizard-checked';
+
+function loadChecked(): Set<string> {
+  try {
+    const raw = localStorage.getItem(WIZARD_STORAGE_KEY);
+    if (raw) return new Set(JSON.parse(raw));
+  } catch { /* ignore */ }
+  return new Set();
+}
+
+function saveChecked(checked: Set<string>) {
+  localStorage.setItem(WIZARD_STORAGE_KEY, JSON.stringify([...checked]));
+}
 
 interface Props {
   countries: CountryCode[];
@@ -9,15 +23,17 @@ interface Props {
 
 export default function WizardView({ countries }: Props) {
   const [currentStep, setCurrentStep] = useState(0);
-  const [checked, setChecked] = useState<Set<string>>(new Set());
+  const [checked, setChecked] = useState<Set<string>>(loadChecked);
 
-  const toggleCheck = (id: string) => {
+  useEffect(() => { saveChecked(checked); }, [checked]);
+
+  const toggleCheck = useCallback((id: string) => {
     setChecked((prev) => {
       const next = new Set(prev);
       next.has(id) ? next.delete(id) : next.add(id);
       return next;
     });
-  };
+  }, []);
 
   const step = wizardSteps[currentStep];
   const relevantItems = step.items.filter(

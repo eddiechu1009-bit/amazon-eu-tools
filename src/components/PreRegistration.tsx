@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { complianceItems } from '../data/compliance';
 import { productCategories } from '../data/categories';
 import { countries as countryData } from '../data/countries';
@@ -7,6 +7,20 @@ import { CountryCode } from '../data/types';
 interface Props {
   countries: CountryCode[];
   selectedCategories?: string[];
+}
+
+const PREREG_STORAGE_KEY = 'eu-tools-prereg-checked';
+
+function loadChecked(): Set<string> {
+  try {
+    const raw = localStorage.getItem(PREREG_STORAGE_KEY);
+    if (raw) return new Set(JSON.parse(raw));
+  } catch { /* ignore */ }
+  return new Set();
+}
+
+function saveChecked(checked: Set<string>) {
+  localStorage.setItem(PREREG_STORAGE_KEY, JSON.stringify([...checked]));
 }
 
 const categoryLabels: Record<string, { label: string; icon: string }> = {
@@ -22,8 +36,10 @@ const difficultyColor = (d: number) => ['', 'bg-green-100 text-green-700', 'bg-b
 
 export default function PreRegistration({ countries: selectedCountries, selectedCategories = [] }: Props) {
   const [fbaCountries, setFbaCountries] = useState<CountryCode[]>([]);
-  const [checked, setChecked] = useState<Set<string>>(new Set());
+  const [checked, setChecked] = useState<Set<string>>(loadChecked);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  useEffect(() => { saveChecked(checked); }, [checked]);
 
   const toggleFba = (code: CountryCode) => {
     setFbaCountries((prev) =>
