@@ -73,7 +73,7 @@ export interface ComplianceItem {
   cost: string;
   difficulty: 1 | 2 | 3 | 4 | 5;
   mandatory: boolean;
-  category: 'tax' | 'safety' | 'environment' | 'registration';
+  category: 'tax' | 'safety' | 'environment' | 'registration' | 'digital' | 'trade' | 'sustainability';
   documents?: DocumentExample[];
   tips?: string[];
   source?: string;
