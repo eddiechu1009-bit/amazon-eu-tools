@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/amazon-eu-tools/',
+  base: process.env.GITHUB_ACTIONS ? '/amazon-eu-tools/' : '/',
 })
