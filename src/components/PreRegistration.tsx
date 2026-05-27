@@ -29,6 +29,7 @@ const categoryLabels: Record<string, { label: string; icon: string }> = {
   environment: { label: '環保法規', icon: '♻️' },
   registration: { label: '註冊與通關', icon: '📋' },
   productCert: { label: '產品安規認證（依品類）', icon: '🔍' },
+  sustainability: { label: '中長期永續法規（提前準備）', icon: '🌱' },
 };
 
 const difficultyLabel = (d: number) => ['', '簡單', '普通', '中等', '較難', '困難'][d] || '';

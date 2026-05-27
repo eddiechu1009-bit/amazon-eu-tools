@@ -31,7 +31,7 @@ export const countries: Country[] = [
     currency: 'EUR',
     vatRate: 22,
     vatRegTimeline: '6-12 週',
-    vatRegCost: '€400-1000/年（透過稅務代理）',
+    vatRegCost: '€400-1000/年（透過稅務代理）+ €50,000 保證金（非歐盟企業）',
     eoriRequired: true,
   },
   {

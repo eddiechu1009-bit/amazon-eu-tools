@@ -59,11 +59,11 @@ export default function ComplianceChecker({ countries: selectedCountries, select
             <h3 className="font-bold text-amazon-dark mb-3">💰 Amazon 佣金費率（Referral Fee）</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div className="bg-blue-50 rounded-lg p-4">
-                <div className="text-sm text-blue-600 font-medium">🇪🇺 歐盟站點（DE/FR/IT/ES）</div>
+                <div className="text-sm text-blue-600 font-medium">歐盟站點（DE/FR/IT/ES）</div>
                 <div className="text-xl font-bold text-blue-800 mt-1">{category.referralFeeEU}</div>
               </div>
               <div className="bg-indigo-50 rounded-lg p-4">
-                <div className="text-sm text-indigo-600 font-medium">🇬🇧 英國站點（UK）</div>
+                <div className="text-sm text-indigo-600 font-medium">英國站點（UK）</div>
                 <div className="text-xl font-bold text-indigo-800 mt-1">{category.referralFeeUK}</div>
               </div>
             </div>
