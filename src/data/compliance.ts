@@ -4,7 +4,7 @@ export const complianceItems: ComplianceItem[] = [
   {
     id: 'vat-de', name: 'VAT 德國', fullName: 'Umsatzsteuer (VAT) - Germany',
     description: '德國增值稅註冊，稅率 19%。在德國存放庫存或超過遠距銷售門檻需註冊。',
-    countries: ['DE'], timeline: '4-8 週', cost: '€300-800/年', difficulty: 3, mandatory: true, category: 'tax',
+    countries: ['DE'], timeline: '4-8 週', cost: '$330-880/年', difficulty: 3, mandatory: true, category: 'tax',
     documents: [{ name: 'Fragebogen zur steuerlichen Erfassung', description: '德國稅務登記問卷' }],
     tips: ['德國稅務局效率較高', '建議透過稅務代理申請'],
     source: 'Bundeszentralamt für Steuern',
@@ -12,14 +12,14 @@ export const complianceItems: ComplianceItem[] = [
   {
     id: 'vat-fr', name: 'VAT 法國', fullName: 'TVA (VAT) - France',
     description: '法國增值稅註冊，稅率 20%。非歐盟企業需指定稅務代表。',
-    countries: ['FR'], timeline: '4-12 週', cost: '€400-1,000/年', difficulty: 4, mandatory: true, category: 'tax',
+    countries: ['FR'], timeline: '4-12 週', cost: '$440-1,100/年', difficulty: 4, mandatory: true, category: 'tax',
     tips: ['法國要求非歐盟企業指定 Fiscal Representative', '處理時間較長，建議提早申請'],
     source: 'Direction Générale des Finances Publiques',
   },
   {
     id: 'vat-it', name: 'VAT 義大利', fullName: 'IVA (VAT) - Italy',
     description: '義大利增值稅註冊，稅率 22%（歐盟最高之一）。需指定稅務代表。2025年4月起非歐盟企業需繳交 €50,000 保證金（已生效執行中）。',
-    countries: ['IT'], timeline: '6-12 週', cost: '€500-1,200/年 + €50,000 保證金（非歐盟企業）', difficulty: 5, mandatory: true, category: 'tax',
+    countries: ['IT'], timeline: '6-12 週', cost: '$550-1,300/年 + €50,000 保證金（非歐盟企業，法定金額以歐元計）', difficulty: 5, mandatory: true, category: 'tax',
     warning: '🚨 自 2025/4/10 起執行中：非歐盟企業（含台灣、中國、美國等）需持續維持 €50,000 銀行保證金，否則 VIES 登記會被取消，Pan-EU 計畫也會中止。',
     prerequisites: ['必須先指定義大利稅務代表', '必須先完成 Listing + Shipment 截圖'],
     documents: [
@@ -38,7 +38,7 @@ export const complianceItems: ComplianceItem[] = [
   {
     id: 'vat-es', name: 'VAT 西班牙', fullName: 'IVA (VAT) - Spain',
     description: '西班牙增值稅註冊，稅率 21%。需指定稅務代表。⚠️ 西班牙採雙稅號制度：本土稅號（NIF）和歐盟稅號（NIF-IVA）需分開申請。',
-    countries: ['ES'], timeline: '本土稅號 4-8 週 / 歐盟稅號額外 3-6 個月', cost: '€400-900/年', difficulty: 4, mandatory: true, category: 'tax',
+    countries: ['ES'], timeline: '本土稅號 4-8 週 / 歐盟稅號額外 3-6 個月', cost: '$440-990/年', difficulty: 4, mandatory: true, category: 'tax',
     warning: '🚨 西班牙雙稅號制度：VAT 註冊後只拿到本土稅號，無法在 VIES 查詢。需另外申請 ROI 登記取得歐盟稅號（ES 開頭）。沒有歐盟稅號 = 無法在西班牙入倉 FBA！歐盟稅號只能在 1/4/7/10 月申報月提交申請。',
     prerequisites: ['需先取得本土稅號', '需有 B2B 訂單或跨境交易證明才能申請歐盟稅號'],
     documents: [
@@ -58,14 +58,14 @@ export const complianceItems: ComplianceItem[] = [
   {
     id: 'vat-uk', name: 'VAT 英國', fullName: 'VAT - United Kingdom',
     description: '英國增值稅註冊，稅率 20%。不需稅務代表，流程較簡單。',
-    countries: ['UK'], timeline: '2-6 週', cost: '£300-700/年', difficulty: 2, mandatory: true, category: 'tax',
+    countries: ['UK'], timeline: '2-6 週', cost: '$390-910/年', difficulty: 2, mandatory: true, category: 'tax',
     tips: ['英國不要求稅務代表', '可線上申請，速度較快', 'HMRC 處理效率高'],
     source: 'HMRC - GOV.UK',
   },
   {
     id: 'eori-eu', name: 'EORI 歐盟', fullName: 'Economic Operators Registration and Identification (EU)',
     description: '歐盟經濟營運者註冊識別號碼，進出口必備。一號通用全歐盟。',
-    countries: ['DE', 'FR', 'IT', 'ES'], timeline: '1-3 週', cost: '免費或 €100-300（代辦）', difficulty: 2, mandatory: true, category: 'registration',
+    countries: ['DE', 'FR', 'IT', 'ES'], timeline: '1-3 週', cost: '免費或 $110-330（代辦）', difficulty: 2, mandatory: true, category: 'registration',
     warning: '⚠️ 德國限制：非歐盟企業且未在德國設立公司者，無法直接申請德國 EORI。建議改申請法國或荷蘭 EORI。',
     prerequisites: ['建議在申請 VAT 之前或同時申請'],
     tips: [
@@ -86,7 +86,7 @@ export const complianceItems: ComplianceItem[] = [
   {
     id: 'gpsr', name: 'GPSR', fullName: 'General Product Safety Regulation (EU) 2023/988',
     description: '通用產品安全法規，2024年12月起生效。需指定歐盟授權代理人。',
-    countries: ['DE', 'FR', 'IT', 'ES'], timeline: '2-4 週', cost: '€200-1,000/年', difficulty: 3, mandatory: true, category: 'safety',
+    countries: ['DE', 'FR', 'IT', 'ES'], timeline: '2-4 週', cost: '$220-1,100/年', difficulty: 3, mandatory: true, category: 'safety',
     documents: [
       { name: '授權代理人委任書', description: '指定歐盟境內的 Responsible Person' },
       { name: '產品安全資訊', description: '產品名稱、照片、警告標示' },
@@ -97,28 +97,28 @@ export const complianceItems: ComplianceItem[] = [
   {
     id: 'weee', name: 'WEEE', fullName: 'Waste Electrical and Electronic Equipment Directive',
     description: '電子電器廢棄物指令，銷售電子產品需在各國註冊。',
-    countries: ['DE', 'FR', 'IT', 'ES', 'UK'], timeline: '2-6 週/國', cost: '€100-500/年/國', difficulty: 3, mandatory: false, category: 'environment',
+    countries: ['DE', 'FR', 'IT', 'ES', 'UK'], timeline: '2-6 週/國', cost: '$110-550/年/國', difficulty: 3, mandatory: false, category: 'environment',
     tips: ['僅適用於電子電器產品', 'Amazon 要求提供 WEEE 註冊號', '各國需分別註冊'],
     source: 'EU WEEE Directive 2012/19/EU',
   },
   {
     id: 'epr-packaging', name: 'EPR 包裝', fullName: 'Extended Producer Responsibility - Packaging',
     description: '包裝回收責任，所有在歐洲銷售的賣家都需要註冊。',
-    countries: ['DE', 'FR', 'IT', 'ES', 'UK'], timeline: '1-4 週/國', cost: '€50-500/年/國', difficulty: 2, mandatory: true, category: 'environment',
+    countries: ['DE', 'FR', 'IT', 'ES', 'UK'], timeline: '1-4 週/國', cost: '$60-550/年/國', difficulty: 2, mandatory: true, category: 'environment',
     tips: ['德國：LUCID + 雙元系統', '法國：CITEO', '義大利：CONAI', '西班牙：Ecoembes', '英國：2025年起生效'],
     source: '各國環保法規',
   },
   {
     id: 'lucid', name: 'LUCID', fullName: 'LUCID Verpackungsregister (德國包裝註冊)',
     description: '德國包裝法要求在 LUCID 系統註冊，並與雙元回收系統簽約。',
-    countries: ['DE'], timeline: '1-2 週', cost: '註冊免費，回收合約 €50-300/年', difficulty: 2, mandatory: true, category: 'environment',
+    countries: ['DE'], timeline: '1-2 週', cost: '註冊免費，回收合約 $60-330/年', difficulty: 2, mandatory: true, category: 'environment',
     tips: ['步驟：LUCID 註冊 → 回收系統簽約 → 上傳號碼到 Amazon', '未註冊會被下架'],
     source: 'ZSVR (Zentrale Stelle Verpackungsregister)',
   },
   {
     id: 'battery-epr', name: '電池 EPR', fullName: 'Battery Extended Producer Responsibility',
     description: '含電池產品需在各國註冊電池回收。Amazon 自 2025/8/18 起已強制執行。',
-    countries: ['DE', 'FR', 'IT', 'ES', 'UK'], timeline: '2-4 週/國', cost: '€100-500/年/國', difficulty: 3, mandatory: false, category: 'environment',
+    countries: ['DE', 'FR', 'IT', 'ES', 'UK'], timeline: '2-4 週/國', cost: '$110-550/年/國', difficulty: 3, mandatory: false, category: 'environment',
     tips: ['僅適用於含電池產品', 'Amazon 自 2025/8/18 起已強制執行', '未提供號碼可能被自動加入 Pay on Behalf'],
     source: 'EU Regulation 2023/1542',
   },
@@ -145,17 +145,20 @@ export const complianceItems: ComplianceItem[] = [
   },
   {
     id: 'ppwr', name: 'PPWR 包裝法規', fullName: 'Packaging and Packaging Waste Regulation (EU) 2025/40',
-    description: '歐盟包裝與包裝廢棄物法規，2025年2月生效，2026年8月12日全面適用（距今不到 3 個月）。規範所有進入歐盟市場的包裝（含電商外箱、填充物、氣泡袋），要求減少過度包裝、提升可回收性，並強化 EPR 申報義務。',
-    countries: ['DE', 'FR', 'IT', 'ES'], timeline: '持續合規', cost: '€200-2,000/年（視包裝量）', difficulty: 3, mandatory: true, category: 'environment',
-    warning: '🚨 距離 2026/8/12 全面適用不到 3 個月！電商包裝空隙率上限規範、禁止過度包裝。未合規可能導致商品下架、罰款或進口受阻。各國 EPR 註冊號需更新至符合 PPWR 標準。',
-    prerequisites: ['需先完成各國 EPR 包裝註冊', '需盤點所有包裝材質與重量'],
+    description: '歐盟包裝與包裝廢棄物法規，2025年2月生效，2026年8月12日全面適用（即刻到期）。規範所有進入歐盟市場的包裝（含電商外箱、填充物、氣泡袋），要求減少過度包裝、提升可回收性，並強化 EPR 申報義務。自 2026/8/12 起，每一種投放歐盟市場的包裝都必須備有 EU Declaration of Conformity（符合性聲明）。',
+    countries: ['DE', 'FR', 'IT', 'ES'], timeline: '持續合規（2026/8/12 已全面適用）', cost: '$220-2,200/年（視包裝量）', difficulty: 3, mandatory: true, category: 'environment',
+    warning: '🚨 2026/8/12 起已全面適用！過渡期已結束，多數條文即刻可執行。每種包裝類型都需備 EU Declaration of Conformity；電商包裝空隙率上限規範、禁止過度包裝。未合規可能導致商品下架、罰款或進口受阻。各國 EPR 註冊號需更新至符合 PPWR 標準。',
+    prerequisites: ['需先完成各國 EPR 包裝註冊（所有賣家皆須，無規模豁免）', '需盤點所有包裝材質與重量'],
     documents: [
+      { name: 'EU Declaration of Conformity（包裝符合性聲明）', description: '🚨 2026/8/12 起強制：每一種投放歐盟市場的包裝類型都需備此文件，證明包裝符合 PPWR 要求' },
       { name: '包裝材質與重量申報表', description: '記錄每個 SKU 的包裝材質類型（紙、塑膠、木材等）及重量' },
       { name: 'EPR 註冊號更新證明', description: '各國 EPR 系統中的包裝註冊需符合 PPWR 新標準' },
       { name: '包裝可回收性評估', description: '2030年起需提供包裝可回收性等級（A-E），影響 EPR 費率' },
     ],
     tips: [
-      '⚠️ 距離 2026/8/12 全面適用不到 3 個月，現在就該全面盤點',
+      '🚨 2026/8/12 起過渡期已結束、全面適用，尚未盤點者屬逾期狀態，應立即處理',
+      '每一種包裝類型都需要 EU Declaration of Conformity，不是每個 SKU 一份，而是每種包裝規格一份',
+      '無規模豁免：僅微型企業（員工 <10 且年營收 ≤€2M）在文件要求上有部分減輕，但 EPR 註冊義務照樣適用',
       '電商包裝空隙率上限規範（具體數字以 PPWR 委託法案最終公布為準，業界普遍引用 50% 上限）',
       '2027-2028年起需在包裝上標示數位標識（QR Code），連結環保資訊',
       '可回收性等級（2030年起）將直接影響 EPR 費率：等級越低，費用越高',
@@ -202,9 +205,9 @@ export const complianceItems: ComplianceItem[] = [
   },
   {
     id: 'espr-dpp', name: 'ESPR / DPP', fullName: 'Ecodesign for Sustainable Products Regulation & Digital Product Passport',
-    description: '歐盟永續產品生態設計法規（ESPR），要求產品提供可修復性、可回收性、有害物質等資訊，並透過數位產品護照（DPP）以 QR Code 形式公開。2026/7/19 起大型企業禁止銷毀未售出服飾/鞋類，後續各品類將逐步要求 DPP（紡織、電子優先）。',
-    countries: ['DE', 'FR', 'IT', 'ES'], timeline: '持續合規（2026-2030 分階段）', cost: '€500-5,000/年（視品類與 SKU 數量）', difficulty: 4, mandatory: false, category: 'sustainability',
-    warning: '📅 銷毀禁令僅適用「大型企業」（員工 >250 或營收 >€50M），中小賣家暫不受影響。但若你賣紡織品/服飾/鞋類/電子產品，建議現在就盤點材質成分以利 2027-2028 年 DPP 規範到來。',
+    description: '歐盟永續產品生態設計法規（ESPR），要求產品提供可修復性、可回收性、有害物質等資訊，並透過數位產品護照（DPP）以 QR Code 形式公開。2026/7/19 起大型企業已禁止銷毀未售出服飾/鞋類（已生效），後續各品類將逐步要求 DPP（紡織、電子優先）。歐盟執委會已發布第一份官方 DPP FAQ。',
+    countries: ['DE', 'FR', 'IT', 'ES'], timeline: '持續合規（2026-2030 分階段）', cost: '$550-5,500/年（視品類與 SKU 數量）', difficulty: 4, mandatory: false, category: 'sustainability',
+    warning: '📅 銷毀禁令已於 2026/7/19 生效，但僅適用「大型企業」（員工 >250 或營收 >€50M），中小賣家不受影響。若你賣紡織品/服飾/鞋類/電子產品，建議現在就盤點材質成分以利 2027-2028 年 DPP 規範到來。',
     prerequisites: ['需盤點所有產品的材質成分與有害物質資訊', '需評估產品可修復性與可回收性'],
     documents: [
       { name: '產品材質成分清單', description: '詳列每個 SKU 的材質組成、比例及來源' },
@@ -213,11 +216,11 @@ export const complianceItems: ComplianceItem[] = [
       { name: 'DPP 數位產品護照資料', description: '產品生命週期資料，將以 QR Code 形式標示於產品上（待委託法案公布具體格式）' },
     ],
     tips: [
-      '📅 銷毀禁令適用對象：僅「大型企業」（員工 >250 或營收 >€50M），中小賣家暫不受影響',
+      '📅 銷毀禁令適用對象：僅「大型企業」（員工 >250 或營收 >€50M），已於 2026/7/19 生效，中小賣家不受影響',
       '紡織品（服飾、鞋類）和電子產品是 ESPR 優先規範品類',
       'DPP 將要求以 QR Code 提供：材質成分、有害物質、碳足跡、維修資訊等',
       'DPP 資料格式預計採用 JSON-LD / Schema.org 標準（機器可讀）',
-      '歐盟 DPP 註冊平台預計 2026/7 上線，各品類委託法案將在 2027-2028 年陸續公布',
+      '歐盟 DPP 註冊平台已於 2026/7 上線，執委會亦已發布第一份官方 DPP FAQ；各品類委託法案將在 2027-2028 年陸續公布',
       '建議賣紡織/服飾/鞋類/電子產品的賣家現在開始盤點產品成分，提前準備 2027-2028 年 DPP 規範',
       'Amazon 未來很可能要求賣家在 Listing 中提供 DPP 相關資訊',
       'FBA 賣家：銷毀禁令不適用中小賣家，但可規劃庫存管理策略避免滯銷',
