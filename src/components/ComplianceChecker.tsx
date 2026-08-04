@@ -26,8 +26,9 @@ export default function ComplianceChecker({ countries: selectedCountries, select
 
   // Common requirements for all categories
   const commonReqs = [
-    { name: 'GPSR 授權代理人', countries: ['DE', 'FR', 'IT', 'ES'] as CountryCode[], desc: '歐盟境內授權代理人', cost: '€200-1,000/年' },
-    { name: 'EPR 包裝註冊', countries: ['DE', 'FR', 'IT', 'ES', 'UK'] as CountryCode[], desc: '包裝回收責任註冊', cost: '€50-500/年/國' },
+    { name: 'GPSR 授權代理人（EU RP）', countries: ['DE', 'FR', 'IT', 'ES'] as CountryCode[], desc: '歐盟或北愛境內授權代理人', cost: '$220-1,100/年' },
+    { name: 'UK 責任人（英代）', countries: ['UK'] as CountryCode[], desc: '英國境內經濟營運者，與 EU RP 是兩套獨立制度', cost: '$550-2,200/年' },
+    { name: 'EPR 包裝註冊', countries: ['DE', 'FR', 'IT', 'ES', 'UK'] as CountryCode[], desc: '包裝回收責任註冊', cost: '$60-550/年/國' },
   ];
 
   return (
