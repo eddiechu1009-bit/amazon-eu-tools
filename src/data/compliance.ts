@@ -84,6 +84,28 @@ export const complianceItems: ComplianceItem[] = [
     source: 'GOV.UK',
   },
   {
+    id: 'fba-idc', name: 'FBA IDC 進口申報', fullName: 'FBA Import Details Collection（原法國 FRGTC 制度）',
+    description: '🚨 2026 新規：Amazon 要求非歐盟註冊賣家申報 FBA 入倉貨件的清關資料（MRN + EORI）。原本只管直接發法國的貨件，2026/8 改名為 FBA IDC 並擴大到「有開通 Pan-EU 者，發往任何歐盟國家 FC 的所有貨件」。台灣賣家註冊地在歐盟外，只要有 EU FBA + Pan-EU 幾乎全部在範圍內。',
+    countries: ['DE', 'FR', 'IT', 'ES'], timeline: '出貨前向貨代索取，到倉後 60 天內申報', cost: '無官方費用（貨代可能收取文件費）', difficulty: 3, mandatory: true, category: 'registration',
+    warning: '🚨 9/1 起到倉的貨件進入執行範圍，60 天倒數自到倉日起算；11/1–11/30 分批限制。未補齊者「無法建立新的 EU FBA 入庫貨件」——正好撞 BFCM 旺季補貨窗口。既有庫存仍可賣、在途仍收貨，補齊後自動解除。',
+    prerequisites: ['需已有 EORI 號碼', '需向貨代／清關行索取該貨件首次進入歐盟清關的 MRN'],
+    documents: [
+      { name: 'MRN（Movement Reference Number）', description: '18 碼：2 位年份 + 2 位國碼 + 14 位字元（例 24FR12345678654345）。必須是該貨件首次進入歐盟清關時使用的那一組' },
+      { name: 'EORI 號碼', description: '2 位國碼 + 最多 15 位字元（例 DE987654321）' },
+    ],
+    tips: [
+      '📌 申報路徑：Seller Central → Manage Shipments → 標示「Import details incomplete」的貨件',
+      '💡 MRN 通常在貨代／清關行手上、不會主動給 —— 建貨件時就先跟貨代要，別等系統跳提醒',
+      '✅ 拿不到 MRN 時「選原因代碼」即可避免被限制，最該避免的是放著不處理：',
+      '  • 選項 1：歐盟境內採購（須保留正式發票，pro forma 不算）',
+      '  • 選項 2：清關行未提供（Amazon 會定期審查）',
+      '📌 帳號後台提醒位置：Account Health Dashboard 的 DYK 卡片／Priority Action／Policy Compliance',
+      '⚠️ 建議 9-10 月就處理完，不要拖到 11 月限制期撞旺季',
+      '📌 細部規則與畫面以 Seller Central 實際顯示內容為準',
+    ],
+    source: 'Amazon Seller Central — Manage Shipments / Account Health Dashboard 公告',
+  },
+  {
     id: 'gpsr', name: 'GPSR', fullName: 'General Product Safety Regulation (EU) 2023/988',
     description: '通用產品安全法規，2024年12月起生效。需指定歐盟授權代理人。',
     countries: ['DE', 'FR', 'IT', 'ES'], timeline: '2-4 週', cost: '$220-1,100/年', difficulty: 3, mandatory: true, category: 'safety',
