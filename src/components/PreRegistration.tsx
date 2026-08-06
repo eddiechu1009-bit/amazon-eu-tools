@@ -117,18 +117,33 @@ export default function PreRegistration({ countries: selectedCountries, selected
   const checkedCount = allItems.filter((i) => checked.has(i.id)).length;
   const progress = totalItems > 0 ? Math.round((checkedCount / totalItems) * 100) : 0;
 
-  // Cost estimation
-  // 各項 cost 字串已統一為美元（例 '$330-880/年'、'$1,500-64,000'），取區間下界加總。
-  // replaceAll 而非 replace：'$1,500-64,000' 這種有兩個逗號的值只換第一個會算錯。
-  // 只計入 mandatory 項目：「視品類」的選用項（EPR 代付、EUDR、ESPR 等）不該墊高「最低費用」，
-  // 否則新手會把不一定適用自己的成本當成必付門檻。
-  const estimatedCosts = allItems.reduce((acc, item) => {
-    if (!item.mandatory) return acc;
-    const match = item.cost.match(/[\d,]+/);
-    if (match) acc += parseInt(match[0].replace(/,/g, ''));
-    return acc;
-  }, 0);
-  const mandatoryCount = allItems.filter((i) => i.mandatory).length;
+  // ── 費用估算 ────────────────────────────────────────────────
+  // 各項 cost 字串已統一為美元（例 '$330-880/年'、'$1,500-64,000'），取區間下界。
+  // replace(/,/g) 而非 replace(',')：'$1,500-64,000' 有兩個逗號，只換第一個會算錯。
+  const lowerBound = (cost: string): number => {
+    const match = cost.match(/[\d,]+/);
+    return match ? parseInt(match[0].replace(/,/g, '')) : 0;
+  };
+
+  // 拆成「一次性」與「年度」兩筆，不再混加成一個大數字 ——
+  // 一次性的產品認證做一次就好，跟每年要繳的 VAT／代理費性質完全不同，
+  // 相加會得出一個既不精確又嚇人的金額。
+  // 判定方式：cost 字串含「/年」者為年度費用，其餘視為一次性。
+  //
+  // 已勾選（表示已完成／工廠端已有）的項目一律不計入 —— 多數賣家在其他市場
+  // 已取得 CE／REACH／測試報告，那些是「待確認」而非「待支出」。
+  const costOf = (predicate: (item: (typeof allItems)[number]) => boolean) =>
+    allItems.reduce((acc, item) => {
+      if (!item.mandatory) return acc;      // 「視品類」選用項不墊高估算
+      if (checked.has(item.id)) return acc; // 已完成的不再計入
+      if (!predicate(item)) return acc;
+      return acc + lowerBound(item.cost);
+    }, 0);
+
+  const isRecurring = (cost: string) => cost.includes('/年');
+  const recurringCosts = costOf((i) => isRecurring(i.cost));
+  const oneOffCosts = costOf((i) => !isRecurring(i.cost));
+  const remainingMandatory = allItems.filter((i) => i.mandatory && !checked.has(i.id)).length;
 
   return (
     <div>
@@ -161,7 +176,7 @@ export default function PreRegistration({ countries: selectedCountries, selected
       </div>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-6">
+      <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3">
         <div className="bg-white rounded-xl p-3 sm:p-4 shadow-sm text-center">
           <div className="text-xl sm:text-2xl font-bold text-amazon-dark">{totalItems}</div>
           <div className="text-xs text-gray-500">待辦項目</div>
@@ -174,11 +189,39 @@ export default function PreRegistration({ countries: selectedCountries, selected
           <div className="text-xl sm:text-2xl font-bold text-amazon-orange">{progress}%</div>
           <div className="text-xs text-gray-500">完成率</div>
         </div>
-        <div className="bg-white rounded-xl p-3 sm:p-4 shadow-sm text-center">
-          <div className="text-xl sm:text-2xl font-bold text-blue-600">${estimatedCosts.toLocaleString()}+</div>
-          <div className="text-xs text-gray-500">預估最低費用（USD）</div>
-          <div className="text-[10px] text-gray-400 mt-0.5">僅計 {mandatoryCount} 項必要，未含「視品類」選用項</div>
+      </div>
+
+      {/*
+        費用估算刻意分成「一次性」與「年度維持」兩欄：
+        產品認證做一次就好，跟每年要繳的 VAT／代理費性質不同，混加會得出一個
+        既不精確又讓人卻步的數字。並明確說明勾選已完成的項目會即時扣除 ——
+        多數賣家在其他市場已有 CE／測試報告，那些屬於「待確認」而非「待支出」。
+      */}
+      <div className="bg-white rounded-xl p-4 shadow-sm mb-6">
+        <div className="flex items-baseline justify-between mb-3">
+          <span className="text-sm font-semibold text-amazon-dark">💰 費用估算（USD）</span>
+          <span className="text-xs text-gray-400">尚有 {remainingMandatory} 項必要項未完成</span>
         </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-lg bg-gray-50 p-3">
+            <div className="text-lg sm:text-xl font-bold text-gray-700">
+              ${oneOffCosts.toLocaleString()}<span className="text-sm font-normal text-gray-400"> 起</span>
+            </div>
+            <div className="text-xs text-gray-500 mt-0.5">一次性（產品認證、測試報告）</div>
+            <div className="text-[10px] text-gray-400 mt-1">工廠端若已有報告可直接沿用，勾掉即從估算扣除</div>
+          </div>
+          <div className="rounded-lg bg-blue-50 p-3">
+            <div className="text-lg sm:text-xl font-bold text-blue-700">
+              ${recurringCosts.toLocaleString()}<span className="text-sm font-normal text-blue-400"> 起／年</span>
+            </div>
+            <div className="text-xs text-gray-500 mt-0.5">年度維持（VAT、代理、保險）</div>
+            <div className="text-[10px] text-gray-400 mt-1">多數項目可透過同一服務商整合報價</div>
+          </div>
+        </div>
+        <p className="text-[11px] text-gray-400 mt-3 leading-relaxed">
+          以上取各項報價區間的下界加總，屬粗估。實際金額依認證機構、稅務代理與品類而異，
+          常可透過整合服務商、共用測試報告等方式低於此估算。未含「視品類」的選用項目。
+        </p>
       </div>
 
       {/* Progress bar */}
