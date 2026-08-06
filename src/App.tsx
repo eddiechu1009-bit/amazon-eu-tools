@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CountrySelector from './components/CountrySelector';
 import CategorySelector from './components/CategorySelector';
 import TabNav from './components/TabNav';
@@ -10,11 +10,42 @@ import { CountryCode } from './data/types';
 
 export type TabId = 'wizard' | 'compliance' | 'preregistration' | 'incentives';
 
+// 站點與品類選擇也要記住。原本只有勾選狀態存 localStorage，重新開頁會變成
+// 「已完成 N 項」卻要求重新選國家，看起來像資料丟了。
+const SETUP_STORAGE_KEY = 'eu-tools-setup-v1';
+
+function loadSetup(): { countries: CountryCode[]; categories: string[] } {
+  try {
+    const raw = localStorage.getItem(SETUP_STORAGE_KEY);
+    if (!raw) return { countries: [], categories: [] };
+    const parsed = JSON.parse(raw);
+    return {
+      countries: Array.isArray(parsed.countries) ? parsed.countries : [],
+      categories: Array.isArray(parsed.categories) ? parsed.categories : [],
+    };
+  } catch {
+    return { countries: [], categories: [] };
+  }
+}
+
 export default function App() {
-  const [selectedCountries, setSelectedCountries] = useState<CountryCode[]>([]);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const saved = loadSetup();
+  const [selectedCountries, setSelectedCountries] = useState<CountryCode[]>(saved.countries);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(saved.categories);
   const [activeTab, setActiveTab] = useState<TabId>('preregistration');
-  const [started, setStarted] = useState(false);
+  // 之前選過國家就直接進主畫面，不用再走一次歡迎頁
+  const [started, setStarted] = useState(saved.countries.length > 0);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        SETUP_STORAGE_KEY,
+        JSON.stringify({ countries: selectedCountries, categories: selectedCategories })
+      );
+    } catch {
+      // localStorage 不可用（隱私模式等）時忽略，不影響功能
+    }
+  }, [selectedCountries, selectedCategories]);
 
   if (!started) {
     return (
@@ -70,7 +101,13 @@ export default function App() {
         <div className="flex items-center gap-2">
           <CountrySelector selected={selectedCountries} onChange={setSelectedCountries} compact />
           <button
-            onClick={() => { setStarted(false); setActiveTab('preregistration'); }}
+            onClick={() => {
+              // 真正清空選擇，否則重整後 loadSetup() 又會把使用者帶回主畫面
+              setSelectedCountries([]);
+              setSelectedCategories([]);
+              setActiveTab('preregistration');
+              setStarted(false);
+            }}
             className="text-xs text-gray-400 hover:text-white ml-2"
           >
             重新開始
@@ -94,15 +131,19 @@ export default function App() {
             金額單位（USD ↔ EUR ↔ GBP）以 Amazon 內部換算基準為準，實際金額以 Seller Central 顯示為準。
           </p>
           <p>資料來源：Amazon Seller Central、歐盟官方法規、GOV.UK、Amazon Taiwan 官方公告等。內容僅供參考。</p>
-          <p className="mt-1">最後更新：2026年5月</p>
+          <p className="mt-1">最後更新：2026年8月</p>
         </div>
+        {/*
+          這支是新賣家的起點，刻意「不」連到首頁與營運／帳務／Case 三支工具：
+          那些是註冊完成後、開賣後才用得到的，對還在開帳號的人只會增加雜訊。
+          只保留 KYC 自檢 —— KYC 不分新舊賣家，開帳號、改地址、Ongoing 抽查都會遇到，
+          是這個階段真正可能需要的下一步。
+        */}
         <div className="mt-4 flex flex-wrap justify-center gap-3">
-          <a href="https://eu-seller-toolkit.netlify.app/" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-gray-100 hover:bg-amazon-orange/10 hover:text-amazon-dark rounded-lg transition-all duration-200">🛠️ 營運工具箱</a>
-          <a href="https://case-writer.netlify.app/" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-gray-100 hover:bg-amazon-orange/10 hover:text-amazon-dark rounded-lg transition-all duration-200">📝 Case 撰寫工具</a>
-          <a href="https://eu-accounting.netlify.app/" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-gray-100 hover:bg-amazon-orange/10 hover:text-amazon-dark rounded-lg transition-all duration-200">📊 帳務分析工具</a>
-          <a href="https://passkyc.netlify.app/" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-gray-100 hover:bg-amazon-orange/10 hover:text-amazon-dark rounded-lg transition-all duration-200">🪪 KYC 提交前自檢</a>
-          <a href="https://eu-seller-101.netlify.app/" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-amazon-orange/10 text-amazon-dark hover:bg-amazon-orange hover:text-white rounded-lg transition-all duration-200 font-medium">📖 使用教材</a>
+          <a href="https://eu-seller-101.netlify.app/01" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-gray-100 hover:bg-amazon-orange/10 hover:text-amazon-dark rounded-lg transition-all duration-200">📖 這個工具怎麼用</a>
+          <a href="https://passkyc.netlify.app/" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-amazon-orange/10 text-amazon-dark hover:bg-amazon-orange hover:text-white rounded-lg transition-all duration-200 font-medium">🪪 KYC 提交前自檢</a>
         </div>
+        <p className="mt-2 text-xs text-gray-400">KYC 不分新舊賣家都可能遇到，卡在身分驗證時可用</p>
       </footer>
     </div>
   );

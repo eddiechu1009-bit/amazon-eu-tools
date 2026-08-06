@@ -217,6 +217,14 @@ export const feeExplainers: FeeItemExplainer[] = [
     formula: '超齡庫存體積 × 長期倉儲費率（或每件最低收費，取較高者）',
   },
   {
+    key: 'PeakSeasonFulfillmentFee',
+    label: '旺季配送費（Q4）',
+    category: 'fba',
+    description:
+      '📌 2026/10/15–2027/1/14 適用旺季配送費（涵蓋 FBA、EFN、UK→EU 遠端配送）。德國站小型與標準尺寸包裹平均每件增加約 €0.27。大型/笨重品與低價商品不適用。2027/1/15 起回到 2026 非旺季費率。⚠️ 判定看「出貨日」不是下單日。Peak season fulfilment fee applies 2026-10-15 to 2027-01-14, covering FBA, EFN and UK-to-EU remote fulfilment. Determined by ship date, not order date.',
+    formula: '出貨件數 × 旺季附加費率（DE 小型/標準約 €0.27/件）',
+  },
+  {
     key: 'FBAInventoryPlacementServiceFee',
     label: 'FBA 庫存配置服務費',
     category: 'fba',
@@ -326,18 +334,18 @@ export const feeExplainers: FeeItemExplainer[] = [
   },
   {
     key: 'CouponRedemptionFee',
-    label: '優惠券兌換費',
+    label: '優惠券費用',
     category: 'advertising',
     description:
-      '買家使用優惠券時，Amazon 收取的每次兌換手續費（€0.50/次）。Per-redemption fee charged by Amazon when a buyer clips and uses a coupon (€0.50 per redemption).',
-    formula: '兌換次數 × €0.50',
+      '⚠️ 收費方式已於 2025/6/2 改制：不再是「每次兌換固定費」，改為「建立優惠券的前置費 + 兌換銷售額的百分比」（歐洲約 £2/€4 前置 + 兌換銷售額 1.5%，依站別而異）。適用所有優惠券類型含 Subscribe & Save。Fee model changed on 2025-06-02: no longer a flat per-redemption fee. Now an upfront fee per coupon created plus a percentage of coupon-redeemed sales (approx. GBP 2 / EUR 4 upfront + ~1.5% of redeemed sales, varies by store).',
+    formula: '前置費（約 £2/€4 每張券）+ 兌換銷售額 × 約 1.5%',
   },
   {
     key: 'LightningDealFee',
     label: '限時秒殺費',
     category: 'advertising',
     description:
-      '參加 Lightning Deal（限時秒殺）活動的固定費用，旺季費率較高。Fixed fee for participating in Lightning Deals. Higher rates during peak seasons (e.g., Prime Day, Black Friday).',
+      '參加 Lightning Deal（限時秒殺）活動的費用，旺季費率較高。⚠️ 2026/1/5 起 Best Deals 與 Lightning Deals 的費用上限已調降：UK £200、DE €300、FR/IT/ES €100。Fee for participating in Lightning Deals; higher during peak. From 2026-01-05 the fee caps were reduced to GBP 200 (UK), EUR 300 (DE), EUR 100 (FR/IT/ES).',
   },
   {
     key: 'DealFee',

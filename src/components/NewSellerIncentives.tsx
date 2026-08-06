@@ -100,21 +100,28 @@ const incentiveData: IncentiveItem[] = [
     value: '前 100 件佣金上限 10%、次 100 件 5% + $125 額度 + 前 200 件免倉儲/退貨/清算',
     description: '2026/7/30 全新上線，取代舊版 FBA New Selection（NSP 1.0）。針對首次進 FBA 的新品牌 ASIN，給「即時」費用抵扣 —— 不再等次月返利，下單當下就折抵。適用 UK / EU4 / US / CA / JP。',
     howToGet: [
-      '商品需為首次進入 FBA 的「品牌」ASIN（非品牌商品不適用）',
-      '2026 年新 NSI 賣家會自動加入 NSP 2.0，無需手動報名',
-      '🚨 舊 NSP 1.0 賣家：2026/7/30–10/31 期間自動享有新權益（過渡期優惠）',
-      '🚨 但要在 10/31 之後上架的商品也能享有，必須主動到 Seller Central「確認報名」新條款',
-      '從第一批庫存入倉日起算權益窗口',
+      '【賣家資格】已加入專業銷售計劃',
+      '📌 【賣家資格】最近 6 個月的最高 IPI 分數需為 300 或以上（如果賣家已有分數）—— 這是 NSP 1.0 沒有的門檻，IPI 偏低者請先確認資格',
+      '【ASIN 資格】新加入 FBA 的「品牌」新品父 ASIN（過去 12 個月內任何賣家均未向營運中心發送過該 ASIN 的 FBA 貨件）',
+      '【ASIN 資格】非媒介類商品、二手商品、Haul 商城的 ASIN',
+      '【ASIN 資格】標準尺寸與非標準尺寸商品均符合要求（超大件、重型大件除外）',
+      '自動加入條件：2026/1/1 之後上架首個可供購買 ASIN 的 90 天內建立首個 FBA 貨件者，自動加入',
+      '📌 舊版計劃「不會自動延續」—— 已註冊 NSP 1.0 的賣家仍須完成新版註冊',
+      '註冊路徑：賣家平台 → 賣家福利頁面 → 找「新選品計畫（2026）」→ 立即註冊（註冊一次通全球，任一適用站點註冊一次即可）',
     ],
-    deadline: '🚨 2026/10/31 確認報名截止（逾期則之後上架的新品完全不適用）',
+    deadline: '📌 2026/10/31 註冊截止（過渡期內新上架品牌 FBA ASIN 自動享有；之後上架的要繼續享有須先完成註冊）',
     tips: [
-      '💰 佣金抵扣：前 100 件佣金上限 10%（或你原本費率，取較低者）；次 100 件降到 5%。抵扣可用於佣金與物流費等主要費用',
-      '🎟️ $50 Coupon 變動費抵扣 + $75 Vine 註冊費抵扣（中階方案），須在前 60 天內用掉',
-      '📦 前 200 件、前 120 天：免倉儲費、免客戶退貨處理費、免清算費',
-      '📦 同期間亦免收「低庫存量費」與「倉儲利用率附加費」',
-      '⏰ 用 Vine Pre-launch 服務可讓上述權益再延長 45 天（最長約 165 天）',
+      '💰 佣金抵扣（🆕 NSP 1.0 沒有這項）：亞馬遜收到首件商品後 120 天內，前 100 件佣金降至 10%、接下來 100 件降至 5%',
+      '📦 前 200 件 / 120 天免月度倉儲費（額度較 1.0 提高）',
+      '📦 前 200 件 / 120 天免倉儲利用率附加費 + 低量庫存費（🆕 新增福利）',
+      '📦 前 200 件 / 120 天免批量清貨費、免退貨處理費（額度較 1.0 提高）',
+      '🎟️ $75 Vine 優惠 + $50 Coupon 費用優惠（🆕 兩項皆為新增），須於可購買 ASIN 上架之日起 60 天內使用',
+      '  • $75 Vine：每個新父 ASIN 在 Vine 中註冊 3 至 10 件商品可抵扣',
+      '  • $50 Coupon：每個新父 ASIN 註冊 Coupon，可抵扣 Coupon 非固定費用',
+      '⏰ 註冊「Vine 預先發布」功能後，以上所有福利時間線延長 45 天',
       '⚠️ 補貼是「按件數」不是按時間封頂 —— 到第 201 件就結束，不是 120 天才結束',
       '⚠️ 與 NSI 權益重疊時（佣金抵扣/Vine/Coupon），系統會先消耗 NSI 額度；但 NSP 2.0 獨有的免清算、免退貨處理、倉儲費豁免仍可同時使用',
+      '⚠️ 新品銷售額回饋不與品牌銷售額回饋疊加（兩者擇優適用）',
       '📌 官方用詞是 liquidations（清算），不包含 disposal（棄置）或 removal（移除），別誤用',
       '💡 對賣家的實質意義：省下的 5-10% 佣金等於拉高可承受的 break-even ACoS，這筆錢可以合理地投在衝排名上',
       '💡 新品上架節奏建議：把新品集中在確認報名後上架，讓 200 件的補貼窗口用在真正想推的主力品',
@@ -160,7 +167,9 @@ const incentiveData: IncentiveItem[] = [
     deadline: '⚠️ 舊制已於 2026/7/30 停止適用新上架商品',
     tips: [
       '📌 舊制 vs 新制關鍵差異：舊制次月才拿到回饋、只退配送費；新制下單當下就折抵，且直接壓低佣金到 10%/5%',
-      '📌 舊制回饋依品類 0-12% 浮動、標準尺寸上限 100 件（非標準 50 件）；新制統一前 200 件',
+      '📌 件數上限翻倍：舊制標準尺寸 100 件、非標準尺寸 50 件 → 新制一律前 200 件（非標準尺寸者等於 4 倍）',
+      '📌 新制多出的項目：階梯式佣金減免、免倉儲利用率附加費＋低量庫存費、$75 Vine、$50 Coupon（皆為 1.0 沒有的）',
+      '⚠️ 但新制多了門檻：賣家近 6 個月最高 IPI 需 ≥ 300（若已有分數），1.0 無此要求',
       '⚠️ 新品銷售額回饋**不與**品牌銷售額回饋疊加（兩者擇優適用）',
     ],
     source: TW_SOURCE,
@@ -368,7 +377,7 @@ export default function NewSellerIncentives() {
           <div className="flex items-center gap-2 sm:gap-3 text-sm">
             <span className="w-16 sm:w-20 text-right font-mono font-bold text-purple-600 flex-shrink-0 text-xs sm:text-sm">6 個月內</span>
             <div className="w-3 h-3 rounded-full bg-purple-500 flex-shrink-0" />
-            <span>完成品牌註冊（含 IP Accelerator 申請中），解鎖 10%/5% 返利</span>
+            <span>完成品牌註冊（含 IP Accelerator 申請中），解鎖品牌銷售返利（10% + 5%）</span>
           </div>
           <div className="flex items-center gap-2 sm:gap-3 text-sm">
             <span className="w-16 sm:w-20 text-right font-mono font-bold text-cyan-600 flex-shrink-0 text-xs sm:text-sm">39 週</span>
@@ -381,7 +390,16 @@ export default function NewSellerIncentives() {
             <span>所有優惠到期，未使用的額度將失效</span>
           </div>
         </div>
-        <p className="text-xs text-gray-400 mt-3 pt-3 border-t border-gray-100">
+        <div className="mt-3 pt-3 border-t border-gray-100 bg-blue-50 border border-blue-200 rounded-lg p-3">
+          <p className="text-xs sm:text-sm text-blue-900 font-semibold">
+            📅 日曆固定日期：2026/10/31 — NSP 2.0 註冊截止
+          </p>
+          <p className="text-xs text-blue-800 mt-1">
+            上面的節點都是「從你開帳號起算」，這一條是日曆上的固定日期。未在 Seller Central
+            完成新條款註冊者，10/31 之後上架的新品需先完成註冊才能適用 NSP 2.0。
+          </p>
+        </div>
+        <p className="text-xs text-gray-400 mt-3">
           📌 撥款週期：UK 站 2026/3/26 起，符合資格後 7 天內發放抵用額（取代過去的次月撥款）
         </p>
       </div>

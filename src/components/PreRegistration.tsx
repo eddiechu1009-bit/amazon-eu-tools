@@ -118,11 +118,17 @@ export default function PreRegistration({ countries: selectedCountries, selected
   const progress = totalItems > 0 ? Math.round((checkedCount / totalItems) * 100) : 0;
 
   // Cost estimation
+  // 各項 cost 字串已統一為美元（例 '$330-880/年'、'$1,500-64,000'），取區間下界加總。
+  // replaceAll 而非 replace：'$1,500-64,000' 這種有兩個逗號的值只換第一個會算錯。
+  // 只計入 mandatory 項目：「視品類」的選用項（EPR 代付、EUDR、ESPR 等）不該墊高「最低費用」，
+  // 否則新手會把不一定適用自己的成本當成必付門檻。
   const estimatedCosts = allItems.reduce((acc, item) => {
+    if (!item.mandatory) return acc;
     const match = item.cost.match(/[\d,]+/);
-    if (match) acc += parseInt(match[0].replace(',', ''));
+    if (match) acc += parseInt(match[0].replace(/,/g, ''));
     return acc;
   }, 0);
+  const mandatoryCount = allItems.filter((i) => i.mandatory).length;
 
   return (
     <div>
@@ -169,8 +175,9 @@ export default function PreRegistration({ countries: selectedCountries, selected
           <div className="text-xs text-gray-500">完成率</div>
         </div>
         <div className="bg-white rounded-xl p-3 sm:p-4 shadow-sm text-center">
-          <div className="text-xl sm:text-2xl font-bold text-blue-600">€{estimatedCosts.toLocaleString()}+</div>
-          <div className="text-xs text-gray-500">預估最低費用</div>
+          <div className="text-xl sm:text-2xl font-bold text-blue-600">${estimatedCosts.toLocaleString()}+</div>
+          <div className="text-xs text-gray-500">預估最低費用（USD）</div>
+          <div className="text-[10px] text-gray-400 mt-0.5">僅計 {mandatoryCount} 項必要，未含「視品類」選用項</div>
         </div>
       </div>
 

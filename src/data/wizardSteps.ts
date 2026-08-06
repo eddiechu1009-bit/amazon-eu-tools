@@ -123,7 +123,7 @@ export const wizardSteps: WizardStep[] = [
         required: true,
         timeline: '1-2 天',
         difficulty: 2,
-        warning: '🚨 這是申請 VAT 的必要前置步驟！未完成此步驟將無法順利申請 VAT 稅號。',
+        warning: '📌 這是申請 VAT 的必要前置步驟！未完成此步驟將無法順利申請 VAT 稅號。',
         prerequisites: [
           '必須先完成「帳號註冊」步驟，取得 Seller Central 帳號',
         ],
@@ -179,7 +179,7 @@ export const wizardSteps: WizardStep[] = [
         timeline: '本土稅號：2-4 週 / 歐盟稅號（ROI）：額外 3-6 個月',
         cost: '包含在 VAT 代理費用中',
         difficulty: 4,
-        warning: '🚨 西班牙特殊規定：VAT 註冊後只會拿到本土稅號，無法直接在 VIES 上查到。必須另外申請 ROI（Registro de Operadores Intracomunitarios）才能取得 ES 開頭的歐盟 VAT 稅號。沒有歐盟稅號 = 無法在西班牙入倉 FBA！',
+        warning: '📌 西班牙特殊規定：VAT 註冊後只會拿到本土稅號，無法直接在 VIES 上查到。必須另外申請 ROI（Registro de Operadores Intracomunitarios）才能取得 ES 開頭的歐盟 VAT 稅號。沒有歐盟稅號 = 無法在西班牙入倉 FBA！',
         prerequisites: [
           '必須先完成西班牙 VAT 本土稅號註冊',
           '需要有實際的跨境交易證明或 B2B 訂單才能申請歐盟稅號',
@@ -220,7 +220,7 @@ export const wizardSteps: WizardStep[] = [
         timeline: '準備保證金文件約 2-4 週',
         cost: '€50,000 保證金（銀行擔保或保險擔保，需維持至少 36 個月）',
         difficulty: 5,
-        warning: '🚨 已執行中！非歐盟企業（含台灣、中國、美國等）若要在義大利入倉或使用 Pan-EU，必須持續維持 €50,000 保證金。未繳交將被取消 VIES 登記，導致無法進行歐盟內部貨物調撥，Pan-EU 計畫也會被中止。',
+        warning: '📌 已執行中！非歐盟企業（含台灣、中國、美國等）若要在義大利入倉或使用 Pan-EU，必須持續維持 €50,000 保證金。未繳交將被取消 VIES 登記，導致無法進行歐盟內部貨物調撥，Pan-EU 計畫也會被中止。',
         prerequisites: [
           '必須先指定義大利稅務代表（Fiscal Representative）',
           '必須先完成「建立 Listing 並截圖 Shipment」步驟',
@@ -340,7 +340,7 @@ export const wizardSteps: WizardStep[] = [
           '非歐盟製造商必須指定歐盟或北愛爾蘭境內的授權代理人（Responsible Person）',
           '可擔任 RP 的角色：製造商本身、進口商、授權代表，或（前三者都不在歐盟/北愛時）履約服務商',
           '授權代理人資訊必須標示在產品、包裝或隨附文件上',
-          '🚨 線上 listing 也要顯示：RP 與製造商的名稱與聯絡方式、產品圖、安全警語 —— 主管機關已用爬蟲自動稽核商品頁',
+          '📌 線上 listing 也要顯示：RP 與製造商的名稱與聯絡方式、產品圖、安全警語 —— 主管機關已用爬蟲自動稽核商品頁',
           '⚠️ 換供應商或換 RP 時，每一個商品頁都要同步更新。實體標籤與線上資訊不一致是稽核紅旗',
           'Amazon 會要求上傳 GPSR 相關資訊到 Seller Central（Account Health 頁面可看哪些品項待補）',
           '適用於幾乎所有非食品消費品',
@@ -478,7 +478,7 @@ export const wizardSteps: WizardStep[] = [
         timeline: '1-3 週',
         cost: '免費（自行申請）或 €100-300（透過代理）',
         difficulty: 2,
-        warning: '🚨 德國 EORI 限制：非歐盟企業且未在德國設立公司者，無法直接申請德國 EORI 號碼。建議改申請法國或荷蘭的 EORI，同樣全歐盟通用。',
+        warning: '📌 德國 EORI 限制：非歐盟企業且未在德國設立公司者，無法直接申請德國 EORI 號碼。建議改申請法國或荷蘭的 EORI，同樣全歐盟通用。',
         prerequisites: [
           '必須先完成「帳號註冊」步驟',
           '建議在申請 VAT 之前或同時申請 EORI',
@@ -538,7 +538,7 @@ export const wizardSteps: WizardStep[] = [
           '必須先取得 EORI 號碼',
           '如選擇 Pan-EU，需在所有可能存放庫存的國家都完成 VAT 註冊',
         ],
-        warning: '⚠️ 請勿在未取得該國 VAT 稅號前啟用該國的倉庫設定或發貨到該國倉庫！違反可能導致帳號被封鎖。',
+        warning: '⚠️ 請勿在未取得該國 VAT 稅號前啟用該國的倉庫設定或發貨到該國倉庫。違反可能導致帳號銷售權限受限。',
         tips: [
           'EFN（歐洲配送網絡）：庫存放一國，跨境配送到其他國家。簡單但運費較高',
           'Pan-EU：Amazon 自動分配庫存到多國倉庫。配送快、費用低，但需在各國註冊 VAT',
@@ -563,7 +563,7 @@ export const wizardSteps: WizardStep[] = [
           '如為電子產品，需先完成 WEEE 註冊',
           '產品需已取得必要的安規認證（CE/UKCA 等）',
         ],
-        warning: '⚠️ 在所有前置合規項目完成前，請勿發貨入倉！貨物到達後若合規未完成，可能導致貨物被扣關或帳號被封鎖。\n\n💡 請納入利潤試算：歐洲 FBA 配送費自 2026/4/17 起含 1.5% 燃料及物流附加費（適用 UK/DE/FR/IT/ES/PL/SE/NL/IE/BE）。',
+        warning: '⚠️ 在所有前置合規項目完成前，請勿發貨入倉。貨物到達後若合規未完成，可能導致貨物被扣關或帳號銷售權限受限。\n\n💡 請納入利潤試算：歐洲 FBA 配送費自 2026/4/17 起含 1.5% 燃料及物流附加費（適用 UK/DE/FR/IT/ES/PL/SE/NL/IE/BE）。',
         tips: [
           '需要找貨代（Freight Forwarder）處理國際運輸',
           '貨物需符合 Amazon FBA 包裝和標籤要求',
