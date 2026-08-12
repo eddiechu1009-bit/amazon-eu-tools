@@ -23,6 +23,16 @@ interface IncentiveItem {
 //         https://www.aboutamazon.eu/news/empowering-small-business/update-to-european-referral-and-fulfilment-by-amazon-fees-for-2026
 // [HELP]  Amazon Seller Central Help Page (US): GXMJ38VA95GUN5XU
 //         https://sellercentral.amazon.com/help/hub/reference/GXMJ38VA95GUN5XU
+//
+// Brand Registry 商標規則（2026-08-12 查核）：
+// 1. 接受的商標局共 20-21 個：US, BR, CA, MX, AU, IN, JP, FR, DE, IT, ES, Benelux,
+//    TR, SG, SA, SE, PL, EG, UK, EU, UAE。台灣 TIPO 不在清單內（任何站點都不適用）。
+//    來源：Amazon Seller Forums 社群經理兩度列舉此清單 + 4 份服務商整理一致。
+//    官方 country-specific trademark 頁需登入，未讀到原文 → 工具內保留「以 Seller Central 為準」。
+// 2. Brand Registry 為全球單一帳號，不需逐站重複註冊（Amazon 官方論壇回覆）。
+//    但品牌功能（A+/Store/Sponsored Brands/侵權檢舉）只能選「該 store 管轄可執行」的商標。
+// 3. NSI 品牌返利資格不綁該站商標，BR 註冊成功即可 —— 官方 NSI 條文僅列
+//    「六個月內完成 Brand Registry」，未提商標管轄；此點已另行確認。
 
 const TW_SOURCE = { label: 'Amazon TW 官方公告', url: 'https://gs.amazon.com.tw/news/2026-why-you-need-to-sell-on-amazon-260209' };
 const UK_SOURCE = { label: 'sell.amazon.co.uk 官方頁', url: 'https://sell.amazon.co.uk/sell-online' };
@@ -49,7 +59,9 @@ const incentiveData: IncentiveItem[] = [
       '📌 UK 站：£42,000（前 £40K 給 10% = £4,000；之後 5% 至 £800K 累計 £42,000 上限）',
       '📌 EU4：€47,250（與美元 $52,500 等值，由 Amazon 內部統一基準換算）',
       '📌 兩區合計 ≈ $100,000 USD 等值的返利空間',
-      '台灣賣家可使用台灣智慧財產局核發的商標申請美國 Brand Registry，但歐盟/英國 Brand Registry 仍需 EUIPO / UKIPO 商標',
+      '📌 返利資格只看「是否完成 Brand Registry」，不要求商標來自該站點所在國 —— Brand Registry 是全球單一帳號，註冊一次即可',
+      '⚠️ 但「拿得到返利」不等於「品牌功能開得起來」：A+ Content、Brand Store、Sponsored Brands 需要該站點管轄的商標（歐盟 EUIPO、英國 UKIPO）',
+      '⚠️ 台灣智慧財產局（TIPO）核發的商標 Brand Registry 不接受，任何站點都不適用。須向 Amazon 接受的商標局申請（EUIPO、UKIPO、USPTO 等）或走 IP Accelerator',
       '建議在上架前就先申請商標，加速流程（IP Accelerator 申請中即可使用）',
     ],
     source: CMAX_SOURCE,
