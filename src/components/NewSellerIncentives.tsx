@@ -25,10 +25,12 @@ interface IncentiveItem {
 //         https://sellercentral.amazon.com/help/hub/reference/GXMJ38VA95GUN5XU
 //
 // Brand Registry 商標規則（2026-08-12 查核）：
-// 1. 接受的商標局共 20-21 個：US, BR, CA, MX, AU, IN, JP, FR, DE, IT, ES, Benelux,
-//    TR, SG, SA, SE, PL, EG, UK, EU, UAE。台灣 TIPO 不在清單內（任何站點都不適用）。
-//    來源：Amazon Seller Forums 社群經理兩度列舉此清單 + 4 份服務商整理一致。
-//    官方 country-specific trademark 頁需登入，未讀到原文 → 工具內保留「以 Seller Central 為準」。
+// 1. 台灣智慧財產局（TIPO）商標 Brand Registry 不接受，任何站點都不適用
+//    （含美國站）—— 已由內部 EU 招商確認，非僅推論。
+//    接受的商標局共 20-21 個：US, BR, CA, MX, AU, IN, JP, FR, DE, IT, ES, Benelux,
+//    TR, SG, SA, SE, PL, EG, UK, EU, UAE。此清單來源為 Amazon Seller Forums
+//    社群經理兩度列舉 + 4 份服務商整理一致；官方 country-specific trademark 頁
+//    需登入未讀到原文，故清單本身仍保留「以 Seller Central 為準」（清單會變動）。
 // 2. Brand Registry 為全球單一帳號，不需逐站重複註冊（Amazon 官方論壇回覆）。
 //    但品牌功能（A+/Store/Sponsored Brands/侵權檢舉）只能選「該 store 管轄可執行」的商標。
 // 3. NSI 品牌返利資格不綁該站商標，BR 註冊成功即可 —— 官方 NSI 條文僅列
