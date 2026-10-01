@@ -358,7 +358,7 @@ export const complianceItems: ComplianceItem[] = [
       '💡 每個銷售站點各自適用，需確認保單涵蓋你實際銷售的國家',
       '⚠️ 若保單是 2024/6 之前買的，回頭找保險商確認是否涵蓋歐盟與英國 —— 很可能只保美國站',
       '💡 已在美國站投保者不必然要重買，先查現有保單的承保範圍是否含 EU／UK',
-      '📌 門檻與「連續三個月」的觸發條件已於 2026-08-11 由四個獨立來源交叉查核一致（Compliance Gate／PolicyBee／Taxology／Azure Risk 引述的 BSA 條文）。Seller Central 政策頁需登入無法直接讀取，投保前仍建議以後台政策頁與 Amazon 通知信為準',
+      '📌 門檻與「連續三個月」的觸發條件已於 2026-08-11 經多個公開來源交叉查核一致。Seller Central 政策頁需登入無法直接讀取，投保前仍建議以後台政策頁與 Amazon 通知信為準',
     ],
     source: 'Amazon Services Europe Business Solutions Agreement Clause 8（保險）／2025-01-01 EU BSA 修訂（移除附加被保險人要求）／亞馬遜全球開店台灣公告 https://gs.amazon.com.tw/news/eu-ca-coi-240903／門檻與保額交叉查核 2026-08-11',
   },
