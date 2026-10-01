@@ -13,7 +13,7 @@ export const productCategories: ProductCategory[] = [
       { name: 'RED（無線設備指令）', countries: ['DE', 'FR', 'IT', 'ES'], description: '含 WiFi/藍牙/RF 的產品需符合 RED 2014/53/EU', timeline: '4-8 週', cost: '$2,000-8,000', difficulty: 4, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制（鉛、汞、鎘等）', timeline: '2-4 週', cost: '$500-2,000', difficulty: 2, mandatory: true },
       { name: 'REACH', countries: 'all', description: '化學品註冊、評估、授權和限制', timeline: '2-4 週', cost: '$500-3,000', difficulty: 3, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收註冊', timeline: '2-6 週', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收註冊', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
       { name: 'Battery EPR', countries: 'all', description: '含電池產品需註冊電池回收', timeline: '2-4 週', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
       { name: 'EPREL 能效登記', countries: ['DE', 'FR', 'IT', 'ES'], description: '部分電子產品需在歐盟能效標籤資料庫登記', timeline: '1-2 週', cost: '$110-550', difficulty: 2, mandatory: true },
     ],
@@ -28,7 +28,7 @@ export const productCategories: ProductCategory[] = [
       { name: 'CE (EMC + LVD)', countries: ['DE', 'FR', 'IT', 'ES'], description: '充電器、線材等需符合安全標準', timeline: '3-6 週', cost: '$1,500-8,000', difficulty: 3, mandatory: true },
       { name: 'UKCA', countries: ['UK'], description: '英國產品合規標誌', timeline: '3-6 週', cost: '$1,500-8,000', difficulty: 3, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制', timeline: '2-4 週', cost: '$500-1,500', difficulty: 2, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '2-6 週', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
     ],
   },
   {
@@ -136,7 +136,7 @@ export const productCategories: ProductCategory[] = [
       { name: 'EPREL 能效登記', countries: ['DE', 'FR', 'IT', 'ES'], description: '烤箱、抽油煙機、冰箱、洗碗機等需在 EPREL 資料庫登記並提供能效標籤', timeline: '1-2 週', cost: '$110-550', difficulty: 2, mandatory: true },
       { name: 'REACH', countries: 'all', description: '化學品安全（塗層、不沾鍋 PFAS/PTFE、染料）。歐盟正推動 PFAS 限制，不沾鍋類需留意', timeline: '2-4 週', cost: '$300-2,000', difficulty: 2, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '電動廚房用品的有害物質限制', timeline: '2-4 週', cost: '$500-2,000', difficulty: 2, mandatory: false },
-      { name: 'WEEE 註冊', countries: 'all', description: '廚房小家電屬電子電器，需各國分別註冊回收', timeline: '2-6 週', cost: '$110-550/年/國', difficulty: 3, mandatory: false },
+      { name: 'WEEE 註冊', countries: 'all', description: '廚房小家電屬電子電器，需各國分別註冊回收', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: false },
     ],
   },
   {
@@ -164,7 +164,7 @@ export const productCategories: ProductCategory[] = [
       { name: 'EPREL 能效登記', countries: ['DE', 'FR', 'IT', 'ES'], description: '照明產品需在歐盟能效標籤資料庫登記', timeline: '1-2 週', cost: '$110-550', difficulty: 2, mandatory: true },
       { name: 'ErP 生態設計指令', countries: ['DE', 'FR', 'IT', 'ES'], description: '照明產品能效和生態設計要求', timeline: '2-4 週', cost: '$500-2,000', difficulty: 3, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制', timeline: '2-4 週', cost: '$500-1,500', difficulty: 2, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '2-6 週', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
     ],
   },
   {
@@ -177,7 +177,7 @@ export const productCategories: ProductCategory[] = [
       { name: 'EU Cosmetics Regulation', countries: ['DE', 'FR', 'IT', 'ES'], description: '歐盟化妝品法規 EC 1223/2009', timeline: '4-12 週', cost: '$2,000-10,000', difficulty: 4, mandatory: true },
       { name: 'CPNP 通報', countries: ['DE', 'FR', 'IT', 'ES'], description: '化妝品通報入口（Cosmetic Products Notification Portal）', timeline: '1-2 週', cost: '$220-550', difficulty: 3, mandatory: true },
       { name: 'Responsible Person (EU)', countries: ['DE', 'FR', 'IT', 'ES'], description: '歐盟境內負責人', timeline: '1-2 週', cost: '$550-2,200/年', difficulty: 2, mandatory: true },
-      { name: 'UK Responsible Person（英代）', countries: ['UK'], description: '英國境內負責人，與 EU RP 是兩套獨立制度、不可互相取代', timeline: '1-2 週', cost: '$550-2,200/年', difficulty: 2, mandatory: true },
+      { name: 'UK Responsible Person（英代）', countries: ['UK'], description: '英國端的責任人要求依品類確認；歐盟 RP 替代不了英國端', timeline: '1-2 週', cost: '$550-2,200/年', difficulty: 2, mandatory: true },
       { name: 'SCPN 通報（英國）', countries: ['UK'], description: '英國化妝品通報（Submit Cosmetic Product Notifications），脫歐後與 EU 的 CPNP 分開各自通報', timeline: '1-2 週', cost: '$220-550', difficulty: 3, mandatory: true },
       { name: 'REACH', countries: 'all', description: '化學品安全', timeline: '2-4 週', cost: '$500-2,000', difficulty: 2, mandatory: true },
       { name: 'PIF（產品資訊檔案）', countries: ['DE', 'FR', 'IT', 'ES'], description: '化妝品產品資訊檔案，含安全評估報告', timeline: '4-8 週', cost: '$1,000-5,000', difficulty: 4, mandatory: true },
@@ -267,7 +267,7 @@ export const productCategories: ProductCategory[] = [
       { name: 'CE（機械指令）', countries: ['DE', 'FR', 'IT', 'ES'], description: '電動工具需符合機械指令 2006/42/EC + LVD', timeline: '4-10 週', cost: '$2,000-12,000', difficulty: 4, mandatory: true },
       { name: 'UKCA', countries: ['UK'], description: '英國產品合規標誌', timeline: '4-10 週', cost: '$2,000-12,000', difficulty: 4, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制', timeline: '2-4 週', cost: '$500-1,500', difficulty: 2, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電動工具需電子廢棄物回收註冊', timeline: '2-6 週', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電動工具需電子廢棄物回收註冊', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
     ],
   },
   {
@@ -281,7 +281,7 @@ export const productCategories: ProductCategory[] = [
       { name: 'UKCA', countries: ['UK'], description: '英國產品合規標誌', timeline: '4-10 週', cost: '$3,000-15,000', difficulty: 4, mandatory: true },
       { name: 'EPREL 能效登記', countries: ['DE', 'FR', 'IT', 'ES'], description: '電腦顯示器等需能效登記', timeline: '1-2 週', cost: '$110-550', difficulty: 2, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制', timeline: '2-4 週', cost: '$500-2,000', difficulty: 2, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '2-6 週', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
     ],
   },
   {

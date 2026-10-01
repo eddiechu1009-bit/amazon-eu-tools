@@ -238,7 +238,7 @@ export const wizardSteps: WizardStep[] = [
           '⚠️ 未繳交後果：收到警告 → 60 天寬限期 → VIES 除名 → VAT 號碼可能被取消',
           '⚠️ 失去 VIES 登記 = 無法進行歐盟內部免稅貨物調撥 = Pan-EU 計畫中止',
           '替代方案：部分賣家考慮不在義大利入倉，改用 EFN 從其他國家跨境配送到義大利',
-          'EEA 國家（含挪威、冰島、列支敦士登）和英國企業可豁免此要求',
+          '適用判定看的是「非 EU／EEA 主體＋透過義大利稅務代表」：EEA 主體不在範圍；英國企業可走直接識別等其他程序，不是因國籍一律豁免，請稅代依識別方式確認',
         ],
         source: 'Agenzia delle Entrate Prot. No. 178713/2025 / DPR 633/1972 Art. 35(7-quater) / AVASK https://avaskhelp.zendesk.com/hc/en-gb/articles/37771106516372',
       },
@@ -315,7 +315,7 @@ export const wizardSteps: WizardStep[] = [
           { name: 'Technical Documentation', description: '技術文件，類似 CE 但需符合英國標準' },
         ],
         tips: [
-          '🆕 重要更新：2024 年 UK 法規修訂後，多數消費品永久接受 CE marking（無需另做 UKCA）',
+          '🆕 重要更新：2024 年 UK 法規修訂後，多數消費品持續接受 CE marking、未設終止日（多數不必另做 UKCA）',
           '法源：The Product Safety and Metrology (Amendment) Regulations 2024',
           'UKCA 標籤可貼在產品文件而非產品本身的寬限期：至 2027/12/31',
           '醫療器材 CE 認可寬限期：至 2030/6/30',
@@ -365,8 +365,8 @@ export const wizardSteps: WizardStep[] = [
         tips: [
           '📌 誰需要：公司未在英國設立、但把產品賣到 GB 市場的賣家（台灣賣家幾乎都適用）',
           '📌 誰可以擔任：英國境內的進口商、你在英國的子公司，或第三方合規服務商（俗稱「英代」）',
-          '⚠️ 常見誤解：以為有了歐盟 RP 就不用英代。這是兩套獨立制度 —— 產品同時賣 EU 與 GB，兩邊都要各自有人',
-          '⚠️ 另一個誤解：以為 CE 標誌被英國永久接受就代表不需要英國責任人。標誌認可與責任人義務是兩件事',
+          '⚠️ 常見誤解：以為有了歐盟 RP，英國那邊就不用管。歐盟 RP 替代不了英國端 —— 英國要不要授權代表、技術文件誰保存，依品類適用的法規確認',
+          '⚠️ 另一個誤解：以為 CE 標誌被英國持續接受就代表英國什麼都不用做。標誌認可與責任人義務是兩件事',
           '📌 UKCA／CE 標誌相關文件上需標示英國責任人或進口商資訊',
           '🇮🇪 北愛爾蘭走的是 EU 規則（溫莎架構），需要的是「EU/北愛 RP」而非英代；若你只賣北愛，指定 EU RP 即可',
           '💡 實務建議：找英代時確認對方是否同時提供 UKCA 文件審核與 Amazon 合規欄位填報協助，可省一輪來回',
@@ -430,7 +430,7 @@ export const wizardSteps: WizardStep[] = [
         description: '銷售電子電器產品需在各國註冊 WEEE，負責回收處理費用',
         countries: 'all',
         required: false,
-        timeline: '2-6 週',
+        timeline: '一般 1-3 個月/國',
         cost: '€100-500/年/國',
         difficulty: 3,
         tips: [
@@ -490,7 +490,7 @@ export const wizardSteps: WizardStep[] = [
         ],
         tips: [
           '⚠️ 德國海關（Zoll）規定：非歐盟企業若無德國當地註冊公司，申請德國 EORI 需提供「非正式理由說明」，且可能被拒絕',
-          '✅ 建議方案：改向法國（透過 Soprano 系統）或荷蘭（下載表格 Email 申請）申請 EORI',
+          '✅ 建議：先確認被拒的原因與首次報關地，再向有管轄權的海關申請；符合條件時，常見做法是向法國（透過 Soprano 系統）或荷蘭（下載表格 Email 申請）申請 EORI',
           '法國 EORI 申請：透過 Soprano 平台線上申請，需建立帳號',
           '荷蘭 EORI 申請：下載申請表填寫後 Email 至荷蘭海關，流程簡單',
           '一個 EORI 號碼全歐盟通用，不需要每個國家各申請一個',
