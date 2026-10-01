@@ -9,12 +9,12 @@ export const productCategories: ProductCategory[] = [
     referralFeeUK: '7%',
     certifications: [
       { name: 'CE (EMC + LVD)', countries: ['DE', 'FR', 'IT', 'ES'], description: '電磁相容性和低電壓指令', timeline: '4-8 週', cost: '$3,000-15,000', difficulty: 4, mandatory: true },
-      { name: 'UKCA', countries: ['UK'], description: '英國持續接受 CE 標誌（多數品類）；已有 CE 者多數不必另做 UKCA', timeline: '4-8 週（僅在需要時）', cost: '$3,000-15,000（僅在需要時）', difficulty: 4, mandatory: false },
+      { name: 'GB 產品符合性（CE 或 UKCA）', countries: ['UK'], description: '完成適用的 CE 或 UKCA 路徑；英國持續接受 CE 標誌（多數品類），已有有效 CE 文件者可沿用，不必另做 UKCA', timeline: '4-8 週（尚無文件時）', cost: '已有有效文件者 $0；尚無文件時依實際缺件估算（約 $3,000-15,000）', difficulty: 4, mandatory: true },
       { name: 'RED（無線設備指令）', countries: ['DE', 'FR', 'IT', 'ES'], description: '含 WiFi/藍牙/RF 的產品需符合 RED 2014/53/EU', timeline: '4-8 週', cost: '$2,000-8,000', difficulty: 4, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制（鉛、汞、鎘等）', timeline: '2-4 週', cost: '$500-2,000', difficulty: 2, mandatory: true },
       { name: 'REACH', countries: 'all', description: '化學品註冊、評估、授權和限制', timeline: '2-4 週', cost: '$500-3,000', difficulty: 3, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收註冊', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
-      { name: 'Battery EPR', countries: 'all', description: '含電池產品需註冊電池回收', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收註冊', timeline: '一般約 2-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'Battery EPR', countries: 'all', description: '含電池產品需註冊電池回收', timeline: '一般約 2-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
       { name: 'EPREL 能效登記', countries: ['DE', 'FR', 'IT', 'ES'], description: '部分電子產品需在歐盟能效標籤資料庫登記', timeline: '1-2 週', cost: '$110-550', difficulty: 2, mandatory: true },
     ],
   },
@@ -26,9 +26,9 @@ export const productCategories: ProductCategory[] = [
     referralFeeUK: '前 £100 部分 15%，超過部分 8%',
     certifications: [
       { name: 'CE (EMC + LVD)', countries: ['DE', 'FR', 'IT', 'ES'], description: '充電器、線材等需符合安全標準', timeline: '3-6 週', cost: '$1,500-8,000', difficulty: 3, mandatory: true },
-      { name: 'UKCA', countries: ['UK'], description: '英國持續接受 CE 標誌（多數品類）；已有 CE 者多數不必另做 UKCA', timeline: '3-6 週（僅在需要時）', cost: '$1,500-8,000（僅在需要時）', difficulty: 3, mandatory: false },
+      { name: 'GB 產品符合性（CE 或 UKCA）', countries: ['UK'], description: '完成適用的 CE 或 UKCA 路徑；英國持續接受 CE 標誌（多數品類），已有有效 CE 文件者可沿用，不必另做 UKCA', timeline: '3-6 週（尚無文件時）', cost: '已有有效文件者 $0；尚無文件時依實際缺件估算（約 $1,500-8,000）', difficulty: 3, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制', timeline: '2-4 週', cost: '$500-1,500', difficulty: 2, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '一般約 2-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
     ],
   },
   {
@@ -39,7 +39,7 @@ export const productCategories: ProductCategory[] = [
     referralFeeUK: '15%',
     certifications: [
       { name: 'CE (Toy Safety Directive)', countries: ['DE', 'FR', 'IT', 'ES'], description: '歐盟玩具安全指令 2009/48/EC', timeline: '4-10 週', cost: '$2,000-10,000', difficulty: 4, mandatory: true },
-      { name: 'UKCA (Toy Safety)', countries: ['UK'], description: '英國玩具安全法規；英國持續接受 CE 標誌，已有 CE 者多數不必另做 UKCA', timeline: '4-10 週（僅在需要時）', cost: '$2,000-10,000（僅在需要時）', difficulty: 4, mandatory: false },
+      { name: 'GB 產品符合性（CE 或 UKCA，Toy Safety）', countries: ['UK'], description: '英國玩具安全法規：完成適用的 CE 或 UKCA 路徑；英國持續接受 CE 標誌（多數品類），已有有效 CE 文件者可沿用，不必另做 UKCA', timeline: '4-10 週（尚無文件時）', cost: '已有有效文件者 $0；尚無文件時依實際缺件估算（約 $2,000-10,000）', difficulty: 4, mandatory: true },
       { name: 'EN 71 測試', countries: 'all', description: '玩具安全標準（物理機械 EN 71-1、易燃性 EN 71-2、化學 EN 71-3）', timeline: '3-6 週', cost: '$1,500-5,000', difficulty: 3, mandatory: true },
       { name: 'EN 62115（電動玩具）', countries: 'all', description: '電動玩具安全標準', timeline: '3-6 週', cost: '$1,500-4,000', difficulty: 3, mandatory: true },
       { name: 'REACH', countries: 'all', description: '化學品安全', timeline: '2-4 週', cost: '$500-2,000', difficulty: 2, mandatory: true },
@@ -54,7 +54,7 @@ export const productCategories: ProductCategory[] = [
     referralFeeUK: '15%（≤£10: 8%）',
     certifications: [
       { name: 'CE（嬰幼兒產品指令）', countries: ['DE', 'FR', 'IT', 'ES'], description: '嬰兒推車 EN 1888、嬰兒床 EN 716、嬰兒背帶 EN 13209 等', timeline: '6-12 週', cost: '$3,000-15,000', difficulty: 5, mandatory: true },
-      { name: 'UKCA', countries: ['UK'], description: '英國嬰幼兒產品安全法規；英國持續接受 CE 標誌，已有 CE 者多數不必另做 UKCA', timeline: '6-12 週（僅在需要時）', cost: '$3,000-15,000（僅在需要時）', difficulty: 5, mandatory: false },
+      { name: 'GB 產品符合性（CE 或 UKCA）', countries: ['UK'], description: '英國嬰幼兒產品安全法規：完成適用的 CE 或 UKCA 路徑；英國持續接受 CE 標誌（多數品類），已有有效 CE 文件者可沿用，不必另做 UKCA', timeline: '6-12 週（尚無文件時）', cost: '已有有效文件者 $0；尚無文件時依實際缺件估算（約 $3,000-15,000）', difficulty: 5, mandatory: true },
       { name: 'EN 1888（推車）', countries: 'all', description: '嬰兒推車結構完整性、穩定性、輪子耐久性', timeline: '4-8 週', cost: '$3,000-8,000', difficulty: 4, mandatory: true },
       { name: 'EN 716（嬰兒床）', countries: 'all', description: '嬰兒床欄杆間距、底板強度、側邊高度', timeline: '4-8 週', cost: '$2,000-6,000', difficulty: 4, mandatory: true },
       { name: 'EN 12790（彈跳椅）', countries: 'all', description: '嬰兒彈跳椅/搖椅安全標準', timeline: '4-8 週', cost: '$2,000-5,000', difficulty: 4, mandatory: true },
@@ -70,7 +70,7 @@ export const productCategories: ProductCategory[] = [
     referralFeeUK: '15%',
     certifications: [
       { name: 'CE (MDR 2017/745)', countries: ['DE', 'FR', 'IT', 'ES'], description: '歐盟醫療器材法規，依風險等級分 Class I-III', timeline: '3-18 個月', cost: '$10,000-100,000+', difficulty: 5, mandatory: true },
-      { name: 'UKCA (UK MDR)', countries: ['UK'], description: '英國醫療器材法規；CE 標示醫材在過渡期內仍被接受（期限依器材類別），MHRA 註冊與英代另列，以 MHRA 當期指引為準', timeline: '3-18 個月（僅在需要時）', cost: '$10,000-100,000+（僅在需要時）', difficulty: 5, mandatory: false },
+      { name: 'GB 醫材符合性（UK MDR）', countries: ['UK'], description: '完成適用的 CE 或 UKCA 路徑；CE 認可期限依適用法規、器材類別及證書效期而異，MHRA 註冊與英代另列，以 MHRA 當期指引為準', timeline: '3-18 個月（尚無文件時）', cost: '已有有效文件者 $0；尚無文件時依實際缺件估算（約 $10,000-100,000+）', difficulty: 5, mandatory: true },
       { name: 'EU 授權代理人（MDR）', countries: ['DE', 'FR', 'IT', 'ES'], description: '非歐盟製造商必須指定歐盟授權代理人', timeline: '2-4 週', cost: '$2,200-11,000/年', difficulty: 4, mandatory: true },
       { name: 'UK Responsible Person（醫材英代）', countries: ['UK'], description: '非英國製造商需指定 UKRP 並向 MHRA 註冊，與 EU 授權代理人分開', timeline: '2-6 週', cost: '$2,200-11,000/年', difficulty: 4, mandatory: true },
       { name: 'EUDAMED 登記', countries: ['DE', 'FR', 'IT', 'ES'], description: '歐盟醫療器材資料庫登記', timeline: '2-4 週', cost: '$550-2,200', difficulty: 3, mandatory: true },
@@ -136,7 +136,7 @@ export const productCategories: ProductCategory[] = [
       { name: 'EPREL 能效登記', countries: ['DE', 'FR', 'IT', 'ES'], description: '烤箱、抽油煙機、冰箱、洗碗機等需在 EPREL 資料庫登記並提供能效標籤', timeline: '1-2 週', cost: '$110-550', difficulty: 2, mandatory: true },
       { name: 'REACH', countries: 'all', description: '化學品安全（塗層、不沾鍋 PFAS/PTFE、染料）。歐盟正推動 PFAS 限制，不沾鍋類需留意', timeline: '2-4 週', cost: '$300-2,000', difficulty: 2, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '電動廚房用品的有害物質限制', timeline: '2-4 週', cost: '$500-2,000', difficulty: 2, mandatory: false },
-      { name: 'WEEE 註冊', countries: 'all', description: '廚房小家電屬電子電器，需各國分別註冊回收', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: false },
+      { name: 'WEEE 註冊', countries: 'all', description: '廚房小家電屬電子電器，需各國分別註冊回收', timeline: '一般約 2-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: false },
     ],
   },
   {
@@ -160,11 +160,11 @@ export const productCategories: ProductCategory[] = [
     referralFeeUK: '15%',
     certifications: [
       { name: 'CE (LVD + EMC)', countries: ['DE', 'FR', 'IT', 'ES'], description: '低電壓指令和電磁相容性', timeline: '4-8 週', cost: '$2,000-8,000', difficulty: 4, mandatory: true },
-      { name: 'UKCA', countries: ['UK'], description: '英國持續接受 CE 標誌（多數品類）；已有 CE 者多數不必另做 UKCA', timeline: '4-8 週（僅在需要時）', cost: '$2,000-8,000（僅在需要時）', difficulty: 4, mandatory: false },
+      { name: 'GB 產品符合性（CE 或 UKCA）', countries: ['UK'], description: '完成適用的 CE 或 UKCA 路徑；英國持續接受 CE 標誌（多數品類），已有有效 CE 文件者可沿用，不必另做 UKCA', timeline: '4-8 週（尚無文件時）', cost: '已有有效文件者 $0；尚無文件時依實際缺件估算（約 $2,000-8,000）', difficulty: 4, mandatory: true },
       { name: 'EPREL 能效登記', countries: ['DE', 'FR', 'IT', 'ES'], description: '照明產品需在歐盟能效標籤資料庫登記', timeline: '1-2 週', cost: '$110-550', difficulty: 2, mandatory: true },
       { name: 'ErP 生態設計指令', countries: ['DE', 'FR', 'IT', 'ES'], description: '照明產品能效和生態設計要求', timeline: '2-4 週', cost: '$500-2,000', difficulty: 3, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制', timeline: '2-4 週', cost: '$500-1,500', difficulty: 2, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '一般約 2-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
     ],
   },
   {
@@ -265,9 +265,9 @@ export const productCategories: ProductCategory[] = [
     referralFeeUK: '13%',
     certifications: [
       { name: 'CE（機械指令）', countries: ['DE', 'FR', 'IT', 'ES'], description: '電動工具需符合機械指令 2006/42/EC + LVD', timeline: '4-10 週', cost: '$2,000-12,000', difficulty: 4, mandatory: true },
-      { name: 'UKCA', countries: ['UK'], description: '英國持續接受 CE 標誌（多數品類）；已有 CE 者多數不必另做 UKCA', timeline: '4-10 週（僅在需要時）', cost: '$2,000-12,000（僅在需要時）', difficulty: 4, mandatory: false },
+      { name: 'GB 產品符合性（CE 或 UKCA）', countries: ['UK'], description: '完成適用的 CE 或 UKCA 路徑；英國持續接受 CE 標誌（多數品類），已有有效 CE 文件者可沿用，不必另做 UKCA', timeline: '4-10 週（尚無文件時）', cost: '已有有效文件者 $0；尚無文件時依實際缺件估算（約 $2,000-12,000）', difficulty: 4, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制', timeline: '2-4 週', cost: '$500-1,500', difficulty: 2, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電動工具需電子廢棄物回收註冊', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電動工具需電子廢棄物回收註冊', timeline: '一般約 2-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
     ],
   },
   {
@@ -278,10 +278,10 @@ export const productCategories: ProductCategory[] = [
     referralFeeUK: '7%',
     certifications: [
       { name: 'CE (EMC + LVD + RED)', countries: ['DE', 'FR', 'IT', 'ES'], description: '電磁相容、低電壓、無線設備指令', timeline: '4-10 週', cost: '$3,000-15,000', difficulty: 4, mandatory: true },
-      { name: 'UKCA', countries: ['UK'], description: '英國持續接受 CE 標誌（多數品類）；已有 CE 者多數不必另做 UKCA', timeline: '4-10 週（僅在需要時）', cost: '$3,000-15,000（僅在需要時）', difficulty: 4, mandatory: false },
+      { name: 'GB 產品符合性（CE 或 UKCA）', countries: ['UK'], description: '完成適用的 CE 或 UKCA 路徑；英國持續接受 CE 標誌（多數品類），已有有效 CE 文件者可沿用，不必另做 UKCA', timeline: '4-10 週（尚無文件時）', cost: '已有有效文件者 $0；尚無文件時依實際缺件估算（約 $3,000-15,000）', difficulty: 4, mandatory: true },
       { name: 'EPREL 能效登記', countries: ['DE', 'FR', 'IT', 'ES'], description: '電腦顯示器等需能效登記', timeline: '1-2 週', cost: '$110-550', difficulty: 2, mandatory: true },
       { name: 'RoHS', countries: 'all', description: '有害物質限制', timeline: '2-4 週', cost: '$500-2,000', difficulty: 2, mandatory: true },
-      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'WEEE 註冊', countries: 'all', description: '電子廢棄物回收', timeline: '一般約 2-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
     ],
   },
   {
@@ -316,7 +316,7 @@ export const productCategories: ProductCategory[] = [
     certifications: [
       { name: 'CE（智慧手錶）', countries: ['DE', 'FR', 'IT', 'ES'], description: '智慧手錶需 RED + LVD + EMC', timeline: '4-8 週', cost: '$2,000-10,000', difficulty: 4, mandatory: true },
       { name: 'REACH（鎳釋放）', countries: 'all', description: '與皮膚接觸的金屬部件鎳釋放限制', timeline: '2-4 週', cost: '$300-1,000', difficulty: 2, mandatory: true },
-      { name: 'Battery EPR', countries: 'all', description: '含電池產品回收註冊', timeline: '一般 1-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
+      { name: 'Battery EPR', countries: 'all', description: '含電池產品回收註冊', timeline: '一般約 2-3 個月/國', cost: '$110-550/年/國', difficulty: 3, mandatory: true },
     ],
   },
   {
@@ -337,7 +337,7 @@ export const productCategories: ProductCategory[] = [
     referralFeeUK: '15%',
     certifications: [
       { name: 'CE (PPE Regulation EU 2016/425)', countries: ['DE', 'FR', 'IT', 'ES'], description: '個人防護裝備法規，依風險分三類', timeline: '6-16 週', cost: '$3,000-20,000', difficulty: 5, mandatory: true },
-      { name: 'UKCA (PPE)', countries: ['UK'], description: '英國 PPE 法規；英國持續接受 CE 標誌，已有 CE 者多數不必另做 UKCA', timeline: '6-16 週（僅在需要時）', cost: '$3,000-20,000（僅在需要時）', difficulty: 5, mandatory: false },
+      { name: 'GB 產品符合性（CE 或 UKCA，PPE）', countries: ['UK'], description: '英國 PPE 法規：完成適用的 CE 或 UKCA 路徑；英國持續接受 CE 標誌（多數品類），已有有效 CE 文件者可沿用，不必另做 UKCA', timeline: '6-16 週（尚無文件時）', cost: '已有有效文件者 $0；尚無文件時依實際缺件估算（約 $3,000-20,000）', difficulty: 5, mandatory: true },
       { name: 'Notified Body 認證', countries: 'all', description: 'Category II/III PPE 需第三方認證機構審核', timeline: '8-16 週', cost: '$5,000-15,000', difficulty: 5, mandatory: true },
     ],
   },

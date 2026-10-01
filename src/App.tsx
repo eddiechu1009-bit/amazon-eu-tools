@@ -128,10 +128,10 @@ export default function App() {
         <div className="max-w-3xl mx-auto px-4">
           <p className="mb-2">
             ⚠️ <span className="font-semibold">資料免責聲明</span>：本工具中的費用、時程、認證費用與服務代理費皆為市場估算值，實際以認證機構、稅務代理或 Seller Central 報價為準。
-            不同幣別（USD ↔ EUR ↔ GBP）的金額依 Amazon 公開計畫條款換算，實際金額以 Seller Central 顯示為準。
+            各站獎勵金額依公開計畫條款及 Seller Central 顯示為準；費用的美元約當金額僅供估算。
           </p>
           <p>資料來源：Amazon Seller Central、歐盟官方法規、GOV.UK、Amazon Taiwan 官方公告等。內容僅供參考。</p>
-          <p className="mt-1">最後更新：2026年8月</p>
+          <p className="mt-1">最後整理：2026 年 10 月 1 日（各項資料查核日期另標）</p>
         </div>
         {/*
           這支是新賣家的起點，刻意「不」連到首頁與營運／帳務／Case 三支工具：

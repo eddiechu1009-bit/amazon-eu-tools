@@ -59,7 +59,7 @@ const incentiveData: IncentiveItem[] = [
     tips: [
       '📌 EU4 與 UK 已分拆計算，符合資格的賣家可在兩區各領一份',
       '📌 UK 站：£42,000（前 £40K 給 10% = £4,000；之後 5% 至 £800K 累計 £42,000 上限）',
-      '📌 EU4：€47,250（與美元 $52,500 等值，依計畫條款的換算基準）',
+      '📌 EU4：€47,250（依計畫條款公告的歐元金額；約當美元 $52,500）',
       '📌 兩區合計 ≈ $100,000 USD 等值的返利空間',
       '📌 返利資格只看「是否完成 Brand Registry」，不要求商標來自該站點所在國 —— Brand Registry 是全球單一帳號，註冊一次即可',
       '⚠️ 但「拿得到返利」不等於「品牌功能開得起來」：A+ Content、Brand Store、Sponsored Brands 需要該站點管轄的商標（歐盟 EUIPO、英國 UKIPO）',
@@ -550,7 +550,7 @@ export default function NewSellerIncentives() {
           <a href="https://gs.amazon.com.tw/news/2026-why-you-need-to-sell-on-amazon-260209" target="_blank" rel="noopener noreferrer" className="underline">Amazon Taiwan 官方公告</a>
           ｜
           <a href="https://sell.amazon.co.uk/sell-online" target="_blank" rel="noopener noreferrer" className="underline">sell.amazon.co.uk</a>
-          。各幣別金額依計畫條款換算，實際金額以 Seller Central 顯示為準。
+          。各站金額依公開計畫條款，實際以 Seller Central 顯示為準。
         </p>
       </div>
 

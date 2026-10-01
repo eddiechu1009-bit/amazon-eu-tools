@@ -31,7 +31,7 @@ export const countries: Country[] = [
     currency: 'EUR',
     vatRate: 22,
     vatRegTimeline: '5-7 個月',
-    vatRegCost: '€400-1000/年（透過稅務代理）+ €50,000 保證金（非歐盟企業）',
+    vatRegCost: '€400-1000/年（透過稅務代理）；非 EU／EEA 主體透過義大利稅務代表申請或維持 VIES，須提供至少 €50,000 合格擔保（擔保費另計）',
     eoriRequired: true,
   },
   {
