@@ -28,7 +28,7 @@ export const wizardSteps: WizardStep[] = [
       {
         id: 'bank-account',
         title: '收款銀行帳戶',
-        description: '需要能接收歐元／英鎊撥款的收款帳戶：可以是能收外幣的銀行帳戶，或合格的跨境收款服務',
+        description: '需要能接收歐元／英鎊撥款的收款帳戶：可以是能收外幣的銀行帳戶，或合格的跨境收款服務（常見例子：Payoneer、WorldFirst、PingPong；僅列舉供參考，不代表推薦）',
         countries: 'all',
         required: true,
         documents: [
