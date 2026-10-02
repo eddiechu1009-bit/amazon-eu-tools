@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { productCategories } from '../data/categories';
 import { CountryCode } from '../data/types';
 import { countries } from '../data/countries';
+import { certDisplay } from '../data/certItems';
 
 interface Props {
   countries: CountryCode[];
@@ -81,7 +82,9 @@ export default function ComplianceChecker({ countries: selectedCountries, select
               <p className="text-gray-500 text-sm">此品類在你選擇的國家沒有特殊安規要求。</p>
             ) : (
               <div className="space-y-3">
-                {relevantCerts.map((cert, i) => (
+                {relevantCerts.map((cert, i) => {
+                  const view = certDisplay(category, cert, selectedCountries);
+                  return (
                   <div key={i} className="border border-gray-100 rounded-lg p-4 hover:border-gray-200 transition">
                     <div className="flex items-center justify-between flex-wrap gap-2">
                       <div>
@@ -96,16 +99,17 @@ export default function ComplianceChecker({ countries: selectedCountries, select
                         ))}
                       </div>
                     </div>
-                    <p className="text-sm text-gray-500 mt-1">{cert.description}</p>
+                    <p className="text-sm text-gray-500 mt-1">{view.description}</p>
                     <div className="flex flex-wrap gap-3 mt-2">
-                      <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded">⏱ {cert.timeline}</span>
-                      <span className="text-xs px-2 py-1 bg-green-50 text-green-700 rounded">💰 {cert.cost}</span>
+                      <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded">⏱ {view.timeline}</span>
+                      <span className="text-xs px-2 py-1 bg-green-50 text-green-700 rounded">💰 {view.cost}</span>
                       <span className={`text-xs px-2 py-1 bg-gray-50 rounded font-medium ${difficultyColor(cert.difficulty)}`}>
                         {difficultyStars(cert.difficulty)}
                       </span>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>

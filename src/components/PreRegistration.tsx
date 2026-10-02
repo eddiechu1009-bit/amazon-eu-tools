@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { complianceItems } from '../data/compliance';
-import { productCategories } from '../data/categories';
+import { buildProductCertItems, lowerBound } from '../data/certItems';
 import { countries as countryData } from '../data/countries';
 import { CountryCode } from '../data/types';
 
@@ -62,46 +62,8 @@ export default function PreRegistration({ countries: selectedCountries, selected
     item.countries.some((c) => allCountries.includes(c))
   );
 
-  // Build product certification items from selected categories, deduplicate by cert name
-  const seenCertNames = new Set<string>();
-  const productCertItems = selectedCategories.flatMap((catId) => {
-    const cat = productCategories.find((c) => c.id === catId);
-    if (!cat) return [];
-    return cat.certifications
-      .filter((cert) => cert.countries === 'all' || cert.countries.some((c) => allCountries.includes(c)))
-      .filter((cert) => {
-        // Deduplicate: skip if we already have a cert with the same name
-        if (seenCertNames.has(cert.name)) return false;
-        seenCertNames.add(cert.name);
-        return true;
-      })
-      .map((cert) => {
-        // Find all categories that share this cert
-        const fromCategories = selectedCategories
-          .map((cid) => productCategories.find((c) => c.id === cid))
-          .filter((c) => c && c.certifications.some((cc) => cc.name === cert.name))
-          .map((c) => c!.name);
-
-        return {
-          id: `cert-${catId}-${cert.name}`,
-          name: `${cert.name}`,
-          fullName: `${cert.name}`,
-          description: cert.description,
-          countries: (cert.countries === 'all' ? allCountries : cert.countries.filter((c) => allCountries.includes(c))) as CountryCode[],
-          timeline: cert.timeline,
-          cost: cert.cost,
-          difficulty: cert.difficulty as 1 | 2 | 3 | 4 | 5,
-          mandatory: cert.mandatory,
-          category: 'productCert' as const,
-          source: `歐盟官方法規`,
-          warning: undefined as string | undefined,
-          prerequisites: undefined as string[] | undefined,
-          documents: undefined as undefined,
-          tips: undefined as string[] | undefined,
-          fromCategories,
-        };
-      });
-  });
+  // 產品認證待辦（同名去重；EU＋UK 共用測試文件時 GB 項不重複計測試費）
+  const productCertItems = buildProductCertItems(selectedCategories, allCountries);
 
   // Combine all items
   const allItems = [...relevantItems, ...productCertItems];
@@ -120,10 +82,6 @@ export default function PreRegistration({ countries: selectedCountries, selected
   // ── 費用估算 ────────────────────────────────────────────────
   // 各項 cost 字串已統一為美元（例 '$330-880/年'、'$1,500-64,000'），取區間下界。
   // replace(/,/g) 而非 replace(',')：'$1,500-64,000' 有兩個逗號，只換第一個會算錯。
-  const lowerBound = (cost: string): number => {
-    const match = cost.match(/[\d,]+/);
-    return match ? parseInt(match[0].replace(/,/g, '')) : 0;
-  };
 
   // 拆成「一次性」與「年度」兩筆，不再混加成一個大數字 ——
   // 一次性的產品認證做一次就好，跟每年要繳的 VAT／代理費性質完全不同，

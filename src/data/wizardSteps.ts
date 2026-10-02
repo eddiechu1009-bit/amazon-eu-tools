@@ -28,7 +28,7 @@ export const wizardSteps: WizardStep[] = [
       {
         id: 'bank-account',
         title: '收款銀行帳戶',
-        description: '需要能接收歐元/英鎊的銀行帳戶，建議使用第三方收款服務',
+        description: '需要能接收歐元／英鎊撥款的收款帳戶：可以是能收外幣的銀行帳戶，或合格的跨境收款服務',
         countries: 'all',
         required: true,
         documents: [
@@ -37,7 +37,7 @@ export const wizardSteps: WizardStep[] = [
         timeline: '1-3 天',
         cost: '第三方收款服務年費約 $0-200 USD',
         difficulty: 1,
-        tips: ['推薦使用 Payoneer、WorldFirst、PingPong 等跨境收款服務', '匯率和手續費各家不同，建議比較後選擇'],
+        tips: ['先確認是 Amazon 支援的收款方式：Seller Central 設定撥款帳戶時可選的銀行所在地／收款服務才算數', '比較時看五件事：手續費率、匯率差（與中間匯率的差距）、提領到台灣帳戶的時間、支援的幣別（EUR、GBP 等）、是否為 Amazon 支援的收款方式', '費率與匯率會調整，以各家當期公告與合約為準'],
       },
       {
         id: 'credit-card',
@@ -224,7 +224,7 @@ export const wizardSteps: WizardStep[] = [
         timeline: '文件準備約 2-4 週；擔保辦理一般約 6-8 週（本土稅號、擔保與 VIES 整體一般約 5-7 個月）',
         cost: '€50,000 擔保額（擔保費依開立機構而定，效期至少 36 個月）',
         difficulty: 5,
-        warning: '📌 執行中：非 EU／EEA 主體透過義大利稅務代表申請或維持 VIES 登記，須提供至少 €50,000 的合格擔保（每一位被代理的外國主體各 €50,000），且須持續維持（台灣企業屬非 EU／EEA 主體）。未維持有效擔保，VIES 登記會被取消，歐盟內跨境調撥與 Pan-EU 也會受影響。',
+        warning: '📌 執行中：非 EU／EEA 主體透過義大利稅務代表申請或維持 VIES 登記，須提供至少 €50,000 的合格擔保（每一位被代理的外國主體各 €50,000），且須持續維持（台灣企業屬非 EU／EEA 主體）。未維持有效擔保可能導致 VIES 登記被取消；除名程序及對歐盟內跨境調撥與 Pan-EU 的影響，以主管機關與 Seller Central 當期通知為準。',
         prerequisites: [
           '必須先指定義大利稅務代表（Fiscal Representative）',
           '必須先完成「建立 Listing 並截圖 Shipment」步驟',
@@ -240,7 +240,7 @@ export const wizardSteps: WizardStep[] = [
           '💰 €50,000 是擔保額，不是要付出去的費用；實際成本是銀行或保險公司收取的擔保費，以及可能的抵押要求，依開立機構而定',
           '擔保開立機構不需在義大利境內，但文件需翻譯成義大利文並附 Apostille',
           '⚠️ 未提供有效擔保的 VIES 除名程序及平台影響，以主管機關與 Seller Central 當期通知為準',
-          '⚠️ 失去 VIES 登記 → 歐盟內跨境免稅調撥受影響 → Pan-EU 也會受影響',
+          '⚠️ 失去 VIES 登記會影響歐盟內跨境免稅調撥，進而影響 Pan-EU；實際影響以 Seller Central 當期通知為準',
           '替代方案：部分賣家考慮不在義大利入倉，改用 EFN 從其他國家跨境配送到義大利',
           '適用判定看的是「非 EU／EEA 主體＋透過義大利稅務代表」：EEA 主體不在範圍；英國企業可走直接識別等其他程序，不是因國籍一律豁免，請稅代依識別方式確認',
         ],
@@ -596,7 +596,7 @@ export const wizardSteps: WizardStep[] = [
           'Amazon 每 14 天撥款一次',
           '可為不同站點設定不同收款帳戶',
           '注意匯率波動對利潤的影響',
-          '建議使用跨境收款服務降低匯損',
+          '比較收款方式的匯率差與手續費（含 Amazon 自身的貨幣轉換選項），選總成本較低的方式',
         ],
       },
       {

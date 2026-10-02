@@ -61,6 +61,11 @@ export interface CertificationReq {
   cost: string;
   difficulty: 1 | 2 | 3 | 4 | 5;
   mandatory: boolean;
+  /**
+   * 與同品類哪一項歐盟認證共用同一套測試文件（填該項的 name）。
+   * 同時選了歐盟站與英國時，這一項不再重複計測試費，只留英國端實際新增的確認項目。
+   */
+  reusesTestsOf?: string;
 }
 
 export interface ComplianceItem {
